@@ -4,7 +4,7 @@ export const projects = [
         title: "TailwindKOM",
         description: "A smart planning tool that analyzes your Strava segments against live weather data to identify which routes are most favorable given current wind direction and speed.",
         video: "/videos/Untitled.mp4",
-        tags: ["React", "Node.js", "Tailwind CSS", "APIs"],
+        tags: ["React", "JavaScript", "Tailwind CSS", "Vite", "REST API", "OAuth 2.0"],
         github: "https://github.com/thomas-mckee/TailwindKOM",
         live: "https://tailwindkom.vercel.app/",
         details: {
@@ -24,7 +24,7 @@ export const projects = [
         id: 2,
         title: "Rubik's Cube Solver", 
         description: "A Rubik's cube solver based on Thistlethwaite's algorithm built using Python. In the future, an ESP32, 2 cameras, and 6 motors will be used to solve a physical cube.",
-        video: "/videos/project2-demo.mp4",
+        video: "/videos/rubiks_cube_solver_demo.mp4",
         tags: ["Python", "ESP32"],
         github: "https://github.com/thomas-mckee/project2",
         live: "https://project2-demo.com",
@@ -45,8 +45,8 @@ export const projects = [
         id: 3,
         title: "2048 Clone",
         description: "A clone of the popular game 2048.",
-        video: "/videos/project3-demo.mp4", 
-        tags: ["Python"],
+        video: "/videos/2048_demo.mp4", 
+        tags: ["Python", "Pygame"],
         github: "https://github.com/thomas-mckee/project3",
         live: null, // No live demo for hardware project
         details: {
