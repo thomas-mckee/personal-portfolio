@@ -1,7 +1,4 @@
-import { projects } from '../data/projects';
-import { useState } from 'react';
-
-const ProjectCard = ({ project }) => {
+export const ProjectCard = ({ project }) => {
     const handleViewProject = () => {
         // Navigate to individual project page
         window.location.href = `/project/${project.id}`;
@@ -60,26 +57,3 @@ const ProjectCard = ({ project }) => {
         </div>
     );
 };
-
-export const Projects = () => {
-    // Only show first 4 projects in 2x2 grid
-    const featuredProjects = projects.slice(0, 4);
-    
-    return (
-        <section id="projects" className="py-20 relative z-10">
-            <div className="mx-45">
-                <div className="text-center mb-16">
-                    <h2 className="text-6xl font-extrabold text-white mb-4">Projects</h2>
-                    <p className="text-xl text-gray-300">Featured work and technical solutions</p>
-                </div>
-                
-                {/* 2x2 Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {featuredProjects.map((project) => (
-                        <ProjectCard key={project.id} project={project} />
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-}

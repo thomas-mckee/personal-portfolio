@@ -18,7 +18,7 @@ export const Header = () => {
                         key={item.id}
                         onClick={() => setActiveSection(item.id)}
                         className={`
-                            relative mx-1 px-4 py-2 text-md font-medium rounded-xl transition-all duration-300
+                            relative cursor-pointer mx-1 px-4 py-2 text-md font-medium rounded-xl transition-all duration-300
                             ${activeSection === item.id 
                                 ? 'text-white bg-gray-700/50' 
                                 : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
