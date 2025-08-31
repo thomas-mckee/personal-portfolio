@@ -23,7 +23,10 @@ export const Header = () => {
                 {navItems.map((item) => (
                     <button
                         key={item.id}
-                        onClick={() => navigate(item.path)}
+                        onClick={() => {
+                            navigate(item.path);
+                            window.scrollTo(0, 0);
+                        }}
                         className={`
                             relative cursor-pointer mx-1 px-4 py-2 text-md font-medium rounded-xl transition-all duration-300
                             ${getActiveItem() === item.id 

@@ -24,7 +24,7 @@ export const HomePage = () => {
             <div className="fixed inset-0 flex items-center overflow-hidden bg-gray-900">
                 <div className="max-w-7xl mx-auto px-6 w-full">
                     <div className="text-white ml-16" style={{ opacity: textOpacity }}>
-                        <h1 className="text-7xl font-extrabold mb-10">
+                        <h1 className="md:text-7xl text-5xl font-extrabold mb-10">
                             Hey! I'm <span className="bg-gradient-to-r from-blue-400 to-yellow-300 text-transparent bg-clip-text">Thomas McKee</span>
                         </h1>
                         <p className="text-4xl mb-4">
@@ -47,10 +47,16 @@ export const HomePage = () => {
             </div>
           
             <div className="relative z-10 pt-20 pb-60 bg-gradient-to-b from-transparent via-gray-900/80 to-gray-900" style={{ marginTop: '100vh' }}>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mx-45">
-                    {featuredProjects.map((project) => (
-                        <ProjectCard key={project.id} project={project} />
-                    ))}
+                <div className="max-w-8xl mx-auto px-10 lg:px-40 relative z-10">        
+                    <div className="inline-block mb-12">
+                        <h1 className="text-6xl mb-4 font-extrabold text-white">Featured Projects</h1>
+                        <div className="h-1 bg-gradient-to-r from-blue-400 to-yellow-300 rounded-full"></div>
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        {featuredProjects.map((project) => (
+                            <ProjectCard key={project.id} project={project} />
+                        ))}
+                    </div>
                 </div>
             </div>
 
