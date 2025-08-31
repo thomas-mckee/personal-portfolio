@@ -32,7 +32,7 @@ export const Skills = () => {
                                                 className="max-w-full max-h-full object-contain transition-all duration-300"
                                             />
                                         </div>
-                                        <p className="text-white text-base font-xl mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <p className="text-white text-base font-xl mt-3 opacity-50 group-hover:opacity-100 transition-opacity duration-300">
                                             {skill.name}
                                         </p>
                                     </div>
