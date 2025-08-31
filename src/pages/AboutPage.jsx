@@ -7,19 +7,21 @@ export const AboutPage = () => {
         <div className='min-h-screen bg-gray-900 '>
             <Header />
 
+            {/* Background decoration */}
+            <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-1/32 left-1/16 w-128 h-128 bg-slate-300 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/4 right-1/6 w-96 h-96 bg-yellow-300 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/12 left-1/3 w-64 h-64 bg-blue-400 rounded-full blur-3xl"></div>
+            </div>
+
+            
             <div className="relative overflow-hidden z-0 max-w-7xl mx-auto px-6 pt-40">
-                {/* Background decoration */}
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-1/32 left-1/16 w-128 h-128 bg-slate-300 rounded-full blur-3xl"></div>
-                    <div className="absolute top-1/4 right-1/6 w-96 h-96 bg-yellow-300 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-1/12 left-1/3 w-64 h-64 bg-blue-400 rounded-full blur-3xl"></div>
+                <div className="inline-block mb-12">
+                    <h1 className="text-6xl mb-2 font-extrabold text-white">About</h1>
+                    <div className="h-1 bg-gradient-to-r from-blue-400 to-yellow-300 rounded-full"></div>
                 </div>
                 
                 <div className="relative z-10">
-                    <div className="text-center mb-20">
-                        <h2 className="text-6xl font-extrabold text-white mb-4">About Me</h2>
-                    </div>
-                    
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
                         <div className="flex flex-col gap-8 justify-center items-center">
                             <div className="w-80 h-80 bg-gradient-to-br from-blue-500 to-yellow-200 rounded-full flex items-center justify-center text-white text-6xl font-bold shadow-2xl">
@@ -69,14 +71,15 @@ export const AboutPage = () => {
                         </div>               
                     </div>
 
-                    <div className="text-center mb-20">
-                        <h2 className="text-6xl font-extrabold text-white mb-4">Skills</h2>
+                    <div className="inline-block mb-8">
+                        <h1 className="text-6xl mb-2 font-extrabold text-white">Skills</h1>
+                        <div className="h-1 bg-gradient-to-r from-blue-400 to-yellow-300 rounded-full"></div>
                     </div>
 
                     <div className="space-y-16 pb-20">
                         {skillCategories.map((category, categoryIndex) => (
                         <div key={categoryIndex}>
-                            <div className="flex items-center gap-8 mb-10">
+                            <div className="flex items-center gap-8 mb-10 mx-16">
                                 <h3 className="text-3xl font-bold text-gray-300/70 whitespace-nowrap">
                                     {category.name}
                                 </h3>

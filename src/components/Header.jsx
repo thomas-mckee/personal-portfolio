@@ -1,14 +1,21 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export const Header = () => {
-    const [activeSection, setActiveSection] = useState('home')
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    
     const navItems = [
-        { id: 'home', label: 'Home' },
-        { id: 'about', label: 'About' },
-        { id: 'projects', label: 'Projects' },
-        { id: 'contact', label: 'Contact' }
+        { id: 'home', label: 'Home', path: '/' },
+        { id: 'about', label: 'About', path: '/about' },
+        { id: 'projects', label: 'Projects', path: '/projects' },
     ]
+
+    const getActiveItem = () => {
+        const currentPath = location.pathname;
+        const activeItem = navItems.find(item => item.path === currentPath);
+        return activeItem ? activeItem.id : 'home';
+    };
 
     return (
         <header className="fixed top-7 left-1/2 transform -translate-x-1/2 z-50">
@@ -16,10 +23,10 @@ export const Header = () => {
                 {navItems.map((item) => (
                     <button
                         key={item.id}
-                        onClick={() => setActiveSection(item.id)}
+                        onClick={() => navigate(item.path)}
                         className={`
                             relative cursor-pointer mx-1 px-4 py-2 text-md font-medium rounded-xl transition-all duration-300
-                            ${activeSection === item.id 
+                            ${getActiveItem() === item.id 
                                 ? 'text-white bg-gray-700/50' 
                                 : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
                             }

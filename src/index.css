@@ -4,13 +4,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Offset for fixed header navigation */
-section[id] {
-  scroll-margin-top: 2rem;
-}
-
-/* Prevent text cursor on sections */
-section[id] {
+* {
   caret-color: transparent;
 }
-

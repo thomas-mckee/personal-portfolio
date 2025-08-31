@@ -4,9 +4,8 @@ import { Header } from "../components/Header";
 import { ProjectCard } from "../components/ProjectCard";
 import { ScrollDownArrow } from "../components/ScrollDownArrow";
 import { projects } from '../data/projects';
-import { div } from 'framer-motion/client';
 
-const featuredProjects = projects.slice(0, 4);
+const featuredProjects = projects.slice(0, 2);
 
 export const HomePage = () => {
     const [scrollY, setScrollY] = useState(0);
@@ -47,8 +46,8 @@ export const HomePage = () => {
                 <ScrollDownArrow />
             </div>
           
-            <div className="relative z-10 py-20 bg-gradient-to-b from-transparent via-gray-900/80 to-gray-900" style={{ marginTop: '100vh' }}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-45">
+            <div className="relative z-10 pt-20 pb-60 bg-gradient-to-b from-transparent via-gray-900/80 to-gray-900" style={{ marginTop: '100vh' }}>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mx-45">
                     {featuredProjects.map((project) => (
                         <ProjectCard key={project.id} project={project} />
                     ))}

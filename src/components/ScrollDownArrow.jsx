@@ -5,10 +5,10 @@ export const ScrollDownArrow = () => {
     const [scrollY, setScrollY] = useState(0);
 
     useEffect(() => {
-        // Show arrow after 5 seconds
+        // Show arrow after 3 seconds
         const timer = setTimeout(() => {
             setVisible(true);
-        }, 5000);
+        }, 3000);
 
         return () => clearTimeout(timer);
     }, []);
