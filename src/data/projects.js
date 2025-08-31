@@ -61,5 +61,26 @@ export const projects = [
                 "Low power consumption"
             ]
         }
+    },
+    {
+        id: 4,
+        title: "MNIST Digit Model",
+        description: "A PyTorch model that predicts the digit a user draws on a canvas.",
+        video: "/videos/", 
+        tags: ["PyTorch", "Flask"],
+        github: "https://github.com/thomas-mckee/project3",
+        live: null, // No live demo for hardware project
+        details: {
+            overview: "Embedded systems project description...",
+            challenges: "Hardware integration and sensor calibration...",
+            results: "Successfully implemented IoT solution...",
+            techStack: ["Arduino", "C++", "ESP32", "Sensors", "WiFi"],
+            features: [
+                "Sensor data collection",
+                "Wireless data transmission", 
+                "Real-time monitoring",
+                "Low power consumption"
+            ]
+        }
     }
 ];
