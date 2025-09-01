@@ -49,7 +49,7 @@ export const HomePage = () => {
                 <ScrollDownArrow />
             </div>
           
-            <div className="relative z-10 pt-20 pb-60 " style={{ marginTop: '100vh' }}>
+            <div className="relative z-10 pt-20 pb-40 " style={{ marginTop: '100vh' }}>
                 <div className="max-w-7xl mx-auto relative z-10">        
                     <div className="inline-block mb-12">
                         <h1 className="text-6xl mb-4 font-extrabold text-white">Featured Projects</h1>
