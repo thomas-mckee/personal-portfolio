@@ -1,13 +1,13 @@
 export const ProjectCard = ({ project }) => {
     const handleViewProject = () => {
         // Navigate to individual project page
-        window.location.href = `/${project.id}`;
+        window.location.href = project.github; //`/${project.id}`;
     };
 
     return (
         <div>
             {/* Video Container */}
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 cursor-pointer group" onClick={handleViewProject}>
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 bg-gray-800 cursor-pointer group" onClick={handleViewProject}>
                 <video
                     src={project.video}
                     autoPlay

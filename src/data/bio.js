@@ -10,6 +10,7 @@ export const bioData = {
     socialLinks: {
         linkedin: "https://www.linkedin.com/in/thomas-mckee/",
         github: "https://github.com/thomas-mckee",
+        strava: "https://www.strava.com/athletes/32498521",
         resume: "/resume.pdf"
     },
 

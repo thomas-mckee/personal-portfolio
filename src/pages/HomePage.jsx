@@ -4,6 +4,7 @@ import { Header } from "../components/Header";
 import { ProjectCard } from "../components/ProjectCard";
 import { ScrollDownArrow } from "../components/ScrollDownArrow";
 import { projects } from '../data/projects';
+import { Footer } from '../components/Footer';
 
 const featuredProjects = projects.slice(0, 2);
 
@@ -20,7 +21,9 @@ export const HomePage = () => {
 
     return (
         <div className='min-h-screen'>  
+
             <Header />
+
             <div className="fixed inset-0 flex items-center overflow-hidden bg-gray-900">
                 <div className="max-w-7xl mx-auto px-6 w-full">
                     <div className="text-white ml-16" style={{ opacity: textOpacity }}>
@@ -46,8 +49,8 @@ export const HomePage = () => {
                 <ScrollDownArrow />
             </div>
           
-            <div className="relative z-10 pt-20 pb-60 bg-gradient-to-b from-transparent via-gray-900/80 to-gray-900" style={{ marginTop: '100vh' }}>
-                <div className="max-w-8xl mx-auto px-10 lg:px-40 relative z-10">        
+            <div className="relative z-10 pt-20 pb-60 " style={{ marginTop: '100vh' }}>
+                <div className="max-w-7xl mx-auto relative z-10">        
                     <div className="inline-block mb-12">
                         <h1 className="text-6xl mb-4 font-extrabold text-white">Featured Projects</h1>
                         <div className="h-1 bg-gradient-to-r from-blue-400 to-yellow-300 rounded-full"></div>
@@ -59,6 +62,8 @@ export const HomePage = () => {
                     </div>
                 </div>
             </div>
+
+            <Footer />
 
         </div>
     );

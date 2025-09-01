@@ -11,7 +11,7 @@ export const projects = [
     {
         id: "rubikscubesolver",
         title: "Rubik's Cube Solver", 
-        description: "A Rubik's cube solver based on Thistlethwaite's algorithm built using Python. In the future, an ESP32, 2 cameras, and 6 motors will be used to solve a physical cube.",
+        description: "A Rubik's cube solver implemented in Python using Thistlethwaite’s four-phase algorithm. Upcoming work involves integrating cameras and motors for automated cube recognition and solving.",
         video: "/videos/rubiks_cube_solver_demo.mp4",
         tags: ["Python", "Embedded"],
         github: "https://github.com/thomas-mckee/RubiksCubeSolver",
@@ -28,7 +28,7 @@ export const projects = [
         id: "mnistdigitmodel",
         title: "MNIST Digit Model",
         description: "A PyTorch model that predicts the digit a user draws on a canvas.",
-        video: "/videos/", 
+        video: "/videos/mnist_digit_model_demo.mp4", 
         tags: ["Python", "Neural Network", "AI"],
         github: "https://github.com/thomas-mckee/project3",
     }

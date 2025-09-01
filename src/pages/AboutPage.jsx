@@ -1,21 +1,23 @@
+import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { bioData } from '../data/bio';
 import { skillCategories } from '../data/skills';
 
 export const AboutPage = () => {
     return (
-        <div className='min-h-screen bg-gray-900 '>
+        <div className='min-h-screen bg-gray-900 relative '>
             <Header />
 
-            {/* Background decoration */}
-            <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-1/32 left-1/16 w-128 h-128 bg-slate-300 rounded-full blur-3xl"></div>
-                <div className="absolute top-1/4 right-1/6 w-96 h-96 bg-yellow-300 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-1/12 left-1/3 w-64 h-64 bg-blue-400 rounded-full blur-3xl"></div>
+            {/* Background decoration - About: Personal & warm */}
+            <div className="absolute inset-0 opacity-8">
+                <div className="absolute top-1/5 left-1/6 w-72 h-72 bg-slate-300 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/3 right-1/5 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
+                <div className="absolute top-2/3 left-1/3 w-48 h-48 bg-yellow-300 rounded-full blur-2xl"></div>
+                <div className="absolute bottom-1/6 left-1/12 w-32 h-32 bg-blue-400 rounded-full blur-xl"></div>
             </div>
 
             
-            <div className="relative overflow-hidden z-0 max-w-7xl mx-auto px-6 pt-40">
+            <div className="relative overflow-hidden z-0 max-w-7xl mx-auto pt-40">
                 <div className="inline-block mb-12">
                     <h1 className="text-6xl mb-2 font-extrabold text-white">About</h1>
                     <div className="h-1 bg-gradient-to-r from-blue-400 to-yellow-300 rounded-full"></div>
@@ -110,6 +112,8 @@ export const AboutPage = () => {
                     </div>
                 </div>
             </div>
+
+            <Footer />
         </div>
     );
 }

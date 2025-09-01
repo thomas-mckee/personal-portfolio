@@ -23,6 +23,8 @@ export const skillCategories = [
         skills: [
             { name: "Git", logo: "/images/logos/git.png" },
             { name: "PyTorch", logo: "/images/logos/pytorch.png" },
+            // { name: "Flask", logo: "/images/logos/flask.png" },
+            // { name: "TensorFlow", logo: "/images/logo/tensorflow.png"}
         ]
     }
 ];

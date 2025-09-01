@@ -3,6 +3,7 @@ import { Funnel, ChevronDown, X } from "lucide-react";
 import { Header } from "../components/Header";
 import { ProjectCard } from "../components/ProjectCard";
 import { projects } from '../data/projects';
+import { Footer } from "../components/Footer";
 
 export const ProjectsPage = () => {
     const [selectedTags, setSelectedTags] = useState([]);
@@ -39,18 +40,20 @@ export const ProjectsPage = () => {
         <div className="min-h-screen bg-gray-900 relative overflow-hidden">
             <Header />
 
-            {/* Background decoration */}
+            {/* Background decoration - Projects: Tech & dynamic */}
             <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-1/32 left-1/16 w-128 h-128 bg-slate-300 rounded-full blur-3xl"></div>
-                <div className="absolute top-1/4 right-1/6 w-96 h-96 bg-yellow-300 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-1/12 left-1/3 w-64 h-64 bg-blue-400 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/8 right-1/12 w-80 h-80 bg-blue-400 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/2 left-1/8 w-96 h-96 bg-yellow-300 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/5 right-1/3 w-64 h-64 bg-slate-300 rounded-full blur-3xl"></div>
+                <div className="absolute top-3/4 left-2/3 w-52 h-52 bg-blue-400 rounded-full blur-2xl"></div>
+                <div className="absolute bottom-1/3 left-1/4 w-40 h-40 bg-yellow-300 rounded-full blur-xl"></div>
             </div>
 
             <div className="py-40 relative z-10">
                 
                 
 
-                <div className="max-w-7xl mx-auto px-6 relative z-10">
+                <div className="max-w-7xl mx-auto relative z-10">
                     <div className="inline-block">
                         <h1 className="text-6xl mb-4 font-extrabold text-white">Projects</h1>
                         <div className="h-1 bg-gradient-to-r from-blue-400 to-yellow-300 rounded-full"></div>
@@ -137,6 +140,8 @@ export const ProjectsPage = () => {
                     )}
                 </div>
             </div>
+
+            <Footer />
         </div>
     );
 }
