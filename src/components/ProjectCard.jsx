@@ -7,6 +7,7 @@ export const ProjectCard = ({ project }) => {
     return (
         <div>
             {/* Video Container */}
+<<<<<<< HEAD
             <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 bg-gray-800 cursor-pointer group" onClick={handleViewProject}>
                 {project.youtubeId ? (
                     <iframe
@@ -29,35 +30,48 @@ export const ProjectCard = ({ project }) => {
                         style={{ imageRendering: 'crisp-edges' }}
                     />
                 )}
+=======
+            <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-6 bg-gray-800 cursor-pointer group" onClick={handleViewProject}>
+                <video
+                    src={project.video}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-contain"
+                    style={{ imageRendering: 'crisp-edges' }}
+                />
+>>>>>>> dev-branch
                 
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="text-white text-xl font-semibold">
-                        View Project
+                        View Code
                     </span>
                 </div>
             </div>
 
             {/* Project Info */}
             <div>
-                <h3 className="text-3xl font-bold text-white mb-2">{project.title}</h3>
-                <p className="text-lg text-gray-300 leading-relaxed mb-4">{project.description}</p>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">{project.title}</h3>
+                <p className="text-base sm:text-lg text-gray-300 leading-relaxed mb-4">{project.description}</p>
                 
                 {/* Continue Reading + Tags Row */}
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
                     <button 
                         onClick={handleViewProject}
                         className="text-white hover:text-blue-400 hover:scale-105 font-semibold transition-all duration-200 relative group cursor-pointer"
                     >
-                        Continue Reading →
+                        View Code →
                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-200 group-hover:w-full"></span>
                     </button>
                     
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                         {project.tags.map((tag, index) => (
                             <span 
                                 key={index} 
-                                className="px-3 py-1 rounded-full text-sm font-medium text-white border border-white/30 bg-white/10 backdrop-blur-sm"
+                                className="px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium text-white border border-white/30 bg-white/10 backdrop-blur-sm"
                             >
                                 {tag}
                             </span>
