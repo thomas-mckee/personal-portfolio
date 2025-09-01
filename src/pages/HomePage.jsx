@@ -41,9 +41,9 @@ export const HomePage = () => {
                 
                 {/* Background decoration */}
                 <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-1/32 left-1/16 w-128 h-128 bg-slate-300 rounded-full blur-3xl"></div>
-                    <div className="absolute top-1/4 right-1/6 w-96 h-96 bg-yellow-300 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-1/12 left-1/3 w-64 h-64 bg-blue-400 rounded-full blur-3xl"></div>
+                    <div className="absolute top-8 left-4 w-48 h-48 sm:w-64 sm:h-64 md:top-1/32 md:left-1/16 md:w-64 md:h-64 lg:w-128 lg:h-128 bg-slate-300 rounded-full blur-3xl"></div>
+                    <div className="absolute top-1/3 right-4 w-36 h-36 sm:w-36 sm:h-36 md:top-1/4 md:right-1/6 md:w-48 md:h-48 lg:w-96 lg:h-96 bg-yellow-300 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-16 left-1/4 w-28 h-28 sm:w-28 sm:h-28 md:bottom-1/12 md:left-1/3 md:w-32 md:h-32 lg:w-64 lg:h-64 bg-blue-400 rounded-full blur-3xl"></div>
                 </div>
                 
                 <ScrollDownArrow />
