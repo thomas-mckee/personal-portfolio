@@ -8,16 +8,27 @@ export const ProjectCard = ({ project }) => {
         <div>
             {/* Video Container */}
             <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 bg-gray-800 cursor-pointer group" onClick={handleViewProject}>
-                <video
-                    src={project.video}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-full object-contain"
-                    style={{ imageRendering: 'crisp-edges' }}
-                />
+                {project.youtubeId ? (
+                    <iframe
+                        src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${project.youtubeId}&controls=0&showinfo=0&rel=0&modestbranding=1`}
+                        title={project.title}
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    />
+                ) : (
+                    <video
+                        src={project.video}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        className="w-full h-full object-contain"
+                        style={{ imageRendering: 'crisp-edges' }}
+                    />
+                )}
                 
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
