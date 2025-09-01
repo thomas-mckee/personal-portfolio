@@ -98,7 +98,7 @@ export const ProjectsPage = () => {
                             </button>
 
                             {isFilterOpen && (
-                                <div className="absolute left-0 sm:right-0 top-full mt-2 w-full sm:w-64 bg-gray-800/95 backdrop-blur-sm border border-gray-600/50 rounded-lg shadow-2xl z-20">
+                                <div className="absolute sm:right-0 sm:left-auto top-full mt-2 w-50 bg-gray-800/95 backdrop-blur-sm border border-gray-600/50 rounded-lg shadow-2xl z-20">
                                     <div className="p-4">
                                         <h3 className="text-white font-medium mb-3">Filter by Type</h3>
                                         <div className="max-h-64 overflow-y-auto space-y-2">
