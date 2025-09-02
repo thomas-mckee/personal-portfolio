@@ -30,7 +30,7 @@ export const Header = () => {
                         className={`
                             relative cursor-pointer mx-1 px-4 py-2 text-md font-medium rounded-xl transition-all duration-300
                             ${getActiveItem() === item.id 
-                                ? 'text-white bg-gray-700/50' 
+                                ? 'text-white bg-gray-700/50 border border-gray-400/50' 
                                 : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
                             }
                         `}

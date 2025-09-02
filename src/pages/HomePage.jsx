@@ -17,7 +17,7 @@ export const HomePage = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const textOpacity = Math.max(0, 1 - scrollY / 500);
+    const textOpacity = Math.max(0, 1 - scrollY / 300);
 
     return (
         <div className='min-h-screen'>  
@@ -28,7 +28,7 @@ export const HomePage = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
                     <div className="text-white ml-4 sm:ml-8 md:ml-16" style={{ opacity: textOpacity }}>
                         <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold mb-6 sm:mb-8 md:mb-10">
-                            Hey! I'm <span className="bg-gradient-to-r from-blue-400 to-yellow-300 text-transparent bg-clip-text">Thomas McKee</span>
+                            Hey! I'm <span className="bg-gradient-to-r from-blue-400 to-yellow-300 text-transparent bg-clip-text">Thomas&nbsp;McKee</span>
                         </h1>
                         <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-3 sm:mb-4">
                             I'm a computer engineering student
