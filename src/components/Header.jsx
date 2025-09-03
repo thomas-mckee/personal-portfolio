@@ -13,8 +13,18 @@ export const Header = () => {
 
     const getActiveItem = () => {
         const currentPath = location.pathname;
-        const activeItem = navItems.find(item => item.path === currentPath);
-        return activeItem ? activeItem.id : 'home';
+        
+        // Check for exact match first
+        const exactMatch = navItems.find(item => item.path === currentPath);
+        if (exactMatch) return exactMatch.id;
+        
+        // Check if we're on a sub-route of projects
+        if (currentPath.startsWith('/projects')) {
+            return 'projects';
+        }
+        
+        // Default to home
+        return 'home';
     };
 
     return (

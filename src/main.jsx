@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { ProjectsPage } from './pages/ProjectsPage';
+import { TailwindkomPage } from './pages/TailwindkomPage';
 
 import './index.css'
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: '/projects',
     element: <ProjectsPage />,
+  },
+  {
+    path: '/projects/tailwindkom',
+    element: <TailwindkomPage />,
   },
 ]);
 

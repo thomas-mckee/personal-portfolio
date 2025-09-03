@@ -1,7 +1,7 @@
 export const ProjectCard = ({ project }) => {
     const handleViewProject = () => {
         // Navigate to individual project page
-        window.location.href = project.github; //`/${project.id}`;
+        window.location.href = `projects/${project.id}`;
     };
 
     return (
