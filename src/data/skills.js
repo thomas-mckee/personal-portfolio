@@ -5,6 +5,7 @@ export const skillCategories = [
             { name: "Python", logo: "/images/logos/python.png" },
             { name: "Java", logo: "/images/logos/java.png" },
             { name: "C", logo: "/images/logos/c.png" },
+            { name: "MATLAB", logo: "/images/logos/matlab.png" },
             { name: "Assembly", logo: "/images/logos/assembly.png" },
         ]
     },
@@ -26,6 +27,7 @@ export const skillCategories = [
             { name: "PyTorch", logo: "/images/logos/pytorch.png" },
             { name: "KiCAD", logo: "/images/logos/kicad.png"},
             { name: "FreeRTOS", logo: "/images/logos/freertos.png"},
+            { name: "LaTeX", logo: "/images/logos/latex.png"},
             // { name: "Flask", logo: "/images/logos/flask.png" },
             // { name: "TensorFlow", logo: "/images/logo/tensorflow.png"}
         ]
