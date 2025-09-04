@@ -33,7 +33,7 @@ export const ProjectCard = ({ project }) => {
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="text-white text-xl font-semibold">
-                        View Code
+                        View Project
                     </span>
                 </div>
             </div>
@@ -49,7 +49,7 @@ export const ProjectCard = ({ project }) => {
                         onClick={handleViewProject}
                         className="text-white hover:text-blue-400 hover:scale-105 font-semibold transition-all duration-200 relative group cursor-pointer"
                     >
-                        View Code →
+                        Continue Reading →
                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-200 group-hover:w-full"></span>
                     </button>
                     

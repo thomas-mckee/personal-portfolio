@@ -27,7 +27,7 @@ export const HomePage = () => {
             <div className="fixed inset-0 flex items-center overflow-hidden bg-gray-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
                     <div className="text-white ml-4 sm:ml-8 md:ml-16" style={{ opacity: textOpacity }}>
-                        <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold mb-6 sm:mb-8 md:mb-10">
+                        <h1 className="text-5xl md:text-5xl lg:text-7xl font-extrabold mb-6 sm:mb-8 md:mb-10">
                             Hey! I'm <span className="bg-gradient-to-r from-blue-400 to-yellow-300 text-transparent bg-clip-text">Thomas&nbsp;McKee</span>
                         </h1>
                         <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-3 sm:mb-4">
@@ -49,7 +49,7 @@ export const HomePage = () => {
                 <ScrollDownArrow />
             </div>
           
-            <div className="relative z-10 pt-12 sm:pt-16 md:pt-20 pb-20 px-4 sm:px-6" style={{ marginTop: '100vh' }}>
+            <div className="relative z-10 pb-20 px-4 sm:px-6" style={{ marginTop: '100vh' }}>
                 <div className="max-w-7xl mx-auto relative z-10">        
                     <div className="inline-block mb-8 sm:mb-10 md:mb-12">
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 font-extrabold text-white">Featured Projects</h1>
