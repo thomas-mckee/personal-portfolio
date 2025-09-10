@@ -29,7 +29,7 @@ export const Header = () => {
 
     return (
         <header className="fixed top-7 left-1/2 transform -translate-x-1/2 z-50">
-            <nav className="flex items-center bg-gray-900/80 backdrop-blur-md shadow-2xl border border-gray-700/80 rounded-4xl px-3 py-3">
+            <nav className="flex items-center bg-gray-800/80 backdrop-blur-md shadow-2xl border border-gray-700/80 rounded-4xl px-3 py-2">
                 {navItems.map((item) => (
                     <button
                         key={item.id}
