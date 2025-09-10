@@ -7,7 +7,7 @@ export const ProjectCard = ({ project }) => {
     return (
         <div>
             {/* Video Container */}
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 bg-gray-800 cursor-pointer group" onClick={handleViewProject}>
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 bg-gray-800 border border-gray-700/30 cursor-pointer group" onClick={handleViewProject}>
                 {project.youtubeId ? (
                     <iframe
                         src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${project.youtubeId}&controls=0&showinfo=0&rel=0&modestbranding=1`}
