@@ -5,7 +5,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { ProjectsPage } from './pages/ProjectsPage';
-import { TailwindKOMProjectPage } from './pages/TailwindKOMProjectPage';
+import { TailwindKOMPage } from './pages/TailwindKOMPage';
 
 import './index.css'
 
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/projects/tailwindkom',
-    element: <TailwindKOMProjectPage />,
+    element: <TailwindKOMPage />,
   },
 ]);
 
