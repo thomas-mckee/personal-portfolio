@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+/* Custom styles to override the background color */
+pre[class*="language-"] {
+  background-color: oklch(23.31% 0.01551 256.843); /* Example: Dark background */
+  /* Add other styles as needed, like padding, border-radius, etc. */
+}
+
+code[class*="language-"] {
+  background-color: oklch(23.31% 0.01551 256.843); /* Ensure inline code also gets the background */
+}
+
 * {
   caret-color: transparent;
 }
