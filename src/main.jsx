@@ -5,7 +5,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { ProjectsPage } from './pages/ProjectsPage';
-import { TailwindKOMPage } from './pages/TailwindKOMPage';
+import { TailwindKOMPage } from './pages/TailwindkomPage';
 
 import './index.css'
 
