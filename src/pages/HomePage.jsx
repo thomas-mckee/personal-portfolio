@@ -3,58 +3,193 @@ import { useState, useEffect } from 'react';
 import { Header } from "../components/Header";
 import { ProjectCard } from "../components/ProjectCard";
 import { ScrollDownArrow } from "../components/ScrollDownArrow";
+import { LCDDisplay } from "../components/LCDDisplay";
 import { projects } from '../data/projects';
 import { Footer } from '../components/Footer';
 
 const featuredProjects = projects.slice(0, 2);
 
 export const HomePage = () => {
-    const [scrollY, setScrollY] = useState(0);
+    const [left, setLeft] = useState(0);
+    const [lcdRect, setLcdRect] = useState({ left: 0, top: 0, width: 0, height: 0 });
+    const [displayText, setDisplayText] = useState({ line1: '', line2: '' });
+    const [showCursor, setShowCursor] = useState(true);
+    const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
+    const messages = [
+        { line1: "HI, IM THOMAS!", line2: "WELCOME HERE!" },
+        { line1: "IM A COMPUTER", line2: "ENG STUDENT" },
+        { line1: "SCROLL DOWN", line2: "TO SEE MORE >" }
+    ];
+
+    // Typewriter effect
     useEffect(() => {
-        const handleScroll = () => setScrollY(window.scrollY);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        const message = messages[currentMessageIndex];
+        const line1Full = message.line1;
+        const line2Full = message.line2;
+        let currentIndex = 0;
+        const totalChars = line1Full.length + line2Full.length;
+        let pauseCounter = 0;
+
+        setShowCursor(true);
+
+        const typeInterval = setInterval(() => {
+            // Type the current character first
+            if (currentIndex <= line1Full.length) {
+                setDisplayText({
+                    line1: line1Full.substring(0, currentIndex),
+                    line2: ''
+                });
+            } else {
+                setDisplayText({
+                    line1: line1Full,
+                    line2: line2Full.substring(0, currentIndex - line1Full.length)
+                });
+            }
+
+            currentIndex++;
+
+            // Pause for 2 intervals after completing line 1
+            if (currentIndex === line1Full.length + 1 && pauseCounter < 2) {
+                pauseCounter++;
+                currentIndex--; // Don't advance during pause
+                return;
+            }
+
+            if (currentIndex > totalChars) {
+                clearInterval(typeInterval);
+                // Wait 2 seconds, then cycle to next message
+                setTimeout(() => {
+                    setCurrentMessageIndex((prev) => (prev + 1) % messages.length);
+                }, 2000);
+            }
+        }, 180); // Type speed in ms
+        return () => clearInterval(typeInterval);
+    }, [currentMessageIndex]);
+
+    // --- IMAGE POSITION MATH ---
+    useEffect(() => {
+        const imgWidth = 4162;           // PNG width
+        const imgHeight = 3714;          // PNG height
+        const lcdX = 2410;               // LCD left edge in PNG
+        const lcdY = 1790;               // LCD top edge in PNG
+        const lcdWidth = 1610;           // LCD width in PNG
+        const lcdHeight = 340;           // LCD height in PNG
+        const lcdCenterX = lcdX + (lcdWidth / 2);  // LCD center
+
+        function update() {
+            const vw = window.innerWidth;
+            const vh = window.innerHeight;
+
+            // Calculate actual displayed image dimensions
+            const displayHeight = Math.min(vh, 1000);
+            const displayWidth = (imgWidth / imgHeight) * displayHeight;
+            const scale = displayHeight / imgHeight;
+
+            // Calculate image position
+            let imageLeft;
+            if (displayWidth <= vw) {
+                imageLeft = (vw - displayWidth) / 2;
+            } else {
+                const lcdPositionInDisplay = lcdCenterX * scale;
+                imageLeft = (vw / 2) - lcdPositionInDisplay;
+            }
+            setLeft(imageLeft);
+
+            // Calculate LCD rectangle position on screen
+            const lcdLeftOnScreen = imageLeft + (lcdX * scale);
+            const lcdTopOnScreen = (vh / 2) - (displayHeight / 2) + (lcdY * scale);
+            const lcdWidthOnScreen = lcdWidth * scale;
+            const lcdHeightOnScreen = lcdHeight * scale;
+
+            setLcdRect({
+                left: lcdLeftOnScreen,
+                top: lcdTopOnScreen,
+                width: lcdWidthOnScreen,
+                height: lcdHeightOnScreen
+            });
+        }
+
+        update();
+        window.addEventListener("resize", update);
+        return () => window.removeEventListener("resize", update);
     }, []);
 
-    const textOpacity = Math.max(0, 1 - scrollY / 300);
-
     return (
-        <div className='min-h-screen'>  
+        <div className='min-h-screen'>
 
             <Header />
 
-            <div className="fixed inset-0 flex items-center overflow-hidden bg-gray-900">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
-                    <div className="text-white ml-4 sm:ml-8 md:ml-16" style={{ opacity: textOpacity }}>
-                        <h1 className="text-5xl md:text-5xl lg:text-7xl font-extrabold mb-6 sm:mb-8 md:mb-10">
-                            Hey! I'm <span className="bg-gradient-to-r from-blue-400 to-yellow-300 text-transparent bg-clip-text">Thomas&nbsp;McKee</span>
-                        </h1>
-                        <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-3 sm:mb-4">
-                            I'm a computer engineering student
-                        </p>
-                        <p className="text-lg sm:text-xl md:text-2xl font-bold">
-                            Welcome to my portfolio.
-                        </p>
-                    </div>
-                </div>           
-                
-                {/* Background decoration */}
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-8 left-4 w-48 h-48 sm:w-64 sm:h-64 md:top-1/32 md:left-1/16 md:w-64 md:h-64 lg:w-128 lg:h-128 bg-slate-300 rounded-full blur-3xl"></div>
-                    <div className="absolute top-1/3 right-4 w-36 h-36 sm:w-36 sm:h-36 md:top-1/4 md:right-1/6 md:w-48 md:h-48 lg:w-96 lg:h-96 bg-yellow-300 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-16 left-1/4 w-28 h-28 sm:w-28 sm:h-28 md:bottom-1/12 md:left-1/3 md:w-32 md:h-32 lg:w-64 lg:h-64 bg-blue-400 rounded-full blur-3xl"></div>
+            <div className="relative overflow-hidden bg-gray-900 min-h-screen flex items-center justify-center">
+                <img
+                    src="/images/6502_2.png"
+                    alt="6502 breadboard"
+                    style={{
+                        position: "absolute",
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                        left: `${left}px`,
+
+                        // never shrink
+                        maxWidth: "none",
+                        maxHeight: "none",
+
+                        // scale down only for viewport height
+                        height: "min(100vh, 1000px)",
+                        width: "auto",
+
+                        pointerEvents: "none",
+                        userSelect: "none",
+                    }}
+                />
+
+                {/* LCD Rectangle Overlay with glow */}
+                <div
+                    style={{
+                        position: "absolute",
+                        left: `${lcdRect.left}px`,
+                        top: `${lcdRect.top}px`,
+                        width: `${lcdRect.width}px`,
+                        height: `${lcdRect.height}px`,
+                        backgroundColor: "rgba(83, 170, 255, 0.8)",
+                        borderRadius: "6px",
+                        boxShadow: "0 0 40px rgba(83, 170, 255, 0.8)",
+                        pointerEvents: "none",
+                    }}
+                />
+
+                {/* LCD Text Display - Pixel-based 16x2 */}
+                <div
+                    style={{
+                        position: "absolute",
+                        left: `${lcdRect.left}px`,
+                        top: `${lcdRect.top}px`,
+                        width: `${lcdRect.width}px`,
+                        height: `${lcdRect.height}px`,
+                        pointerEvents: "none",
+                    }}
+                >
+                    <LCDDisplay
+                        line1={displayText.line1 + (showCursor && displayText.line2 === '' && displayText.line1.length < messages[currentMessageIndex].line1.length ? '_' : '')}
+                        line2={displayText.line2 + (showCursor && displayText.line2.length < messages[currentMessageIndex].line2.length && displayText.line2.length > 0 ? '_' : '')}
+                        width={lcdRect.width}
+                        height={lcdRect.height}
+                        opacity={1}
+                    />
                 </div>
-                
+
                 <ScrollDownArrow />
             </div>
-          
-            <div className="relative z-10 pb-20 px-4 sm:px-6" style={{ marginTop: '100vh' }}>
-                <div className="max-w-7xl mx-auto relative z-10">        
+
+            <div className="relative bg-gray-900 pb-20 px-4 sm:px-6 pt-12">
+                <div className="max-w-7xl mx-auto">
                     <div className="inline-block mb-8 sm:mb-10 md:mb-12">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 font-extrabold text-white">Featured Projects</h1>
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 font-extrabold text-white">
+                            Featured Projects
+                        </h1>
                         <div className="h-1 bg-gradient-to-r from-blue-400 to-yellow-300 rounded-full"></div>
                     </div>
+
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
                         {featuredProjects.map((project) => (
                             <ProjectCard key={project.id} project={project} />
@@ -67,4 +202,4 @@ export const HomePage = () => {
 
         </div>
     );
-}
+};

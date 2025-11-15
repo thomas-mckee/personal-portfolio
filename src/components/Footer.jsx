@@ -13,7 +13,7 @@ export const Footer = () => {
     };
 
     return (
-        <footer className=" backdrop-blur-sm">
+        <footer className="bg-gray-900 backdrop-blur-sm">
             <div className="max-w-7xl mx-auto py-8 sm:py-10 px-4 sm:px-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 items-start">
                     <div className="space-y-3 sm:space-y-4">
