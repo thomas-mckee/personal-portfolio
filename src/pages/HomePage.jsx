@@ -111,8 +111,15 @@ export const HomePage = () => {
         }
 
         update();
+
+        // Force recalculation on mobile after a short delay to handle viewport initialization
+        const timer = setTimeout(update, 100);
+
         window.addEventListener("resize", update);
-        return () => window.removeEventListener("resize", update);
+        return () => {
+            window.removeEventListener("resize", update);
+            clearTimeout(timer);
+        };
     }, []);
 
     return (
