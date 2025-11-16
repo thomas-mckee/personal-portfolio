@@ -52,7 +52,7 @@ export const Header = () => {
                 className="absolute inset-0 w-full h-full object-contain -z-10"
             />
 
-            <nav className="absolute inset-0 flex items-center justify-center gap-2 sm:gap-4 px-4 sm:px-8 pl-3 sm:pl-10 z-10 font-mono">
+            <nav className="absolute inset-0 flex items-center justify-center gap-0.5 sm:gap-2 px-4 sm:px-8 pl-5 sm:pl-10 z-10 font-mono">
                 {navItems.map((item) => (
                     <button
                         key={item.id}
@@ -61,7 +61,7 @@ export const Header = () => {
                             window.scrollTo(0, 0);
                         }}
                         className={`
-                            relative cursor-pointer px-2 sm:px-3 py-1 sm:py-2 text-sm sm:text-lg font-medium rounded transition-all duration-300
+                            relative cursor-pointer px-2 py-2 text-md sm:text-xl font-semibold rounded transition-all duration-300
                             ${getActiveItem() === item.id
                             ? 'text-amber-50 bg-amber-100/10 border border-amber-200/10'
                             : 'text-amber-100/70 hover:text-amber-50 hover:bg-amber-100/10'}

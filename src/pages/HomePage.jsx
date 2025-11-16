@@ -16,9 +16,9 @@ export const HomePage = () => {
     const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
     const messages = [
-        { line1: "HI, IM THOMAS!", line2: "WELCOME HERE!" },
-        { line1: "IM A COMPUTER", line2: "ENG STUDENT" },
-        { line1: "SCROLL DOWN", line2: "TO SEE MORE >" }
+        { line1: "HI, IM THOMAS", line2: "WELCOME HERE!" },
+        { line1: "I STUDY COMPUTER", line2: "ENGINEERING" },
+        { line1: "SCROLL DOWN TO", line2: "SEE MORE >" }
     ];
 
     // ------------------- TYPEWRITER -------------------
