@@ -131,27 +131,29 @@ export const TailwindKOMPage = () => {
 								<div className="h-px my-8 bg-gradient-to-r from-transparent via-gray-300/30 to-transparent"></div>
 
 								<div data-section="windscore" id="windscore" className="mb-12 scroll-mt-24">
-									<h2 className="text-3xl sm:text-4xl font-mono font-bold pb-6 text-amber-50">
+									<h2 className="text-3xl sm:text-4xl font-bold text-white">
 										Wind Score
 									</h2>
 									<div className="prose prose-lg max-w-none">
-										<p className="mb-6">
-											The wind score for each segment is calculated based on the bearing of the segment, as well as the direction and speed of the wind. 
-											Longitude and latitude are provided in the JSON object of each segment and are used to calculate the segment bearing based on the calculations found  {' '}
-											<a 
-												href="https://www.movable-type.co.uk/scripts/latlong.html" 
-												target="_blank"
-												rel="noopener noreferrer"
-												className="text-blue-400 font-semibold"
-											>
-												 here
-											</a>.
-										</p>
-
-										
 										<div data-section="calculations" id="calculations" className="mt-8 scroll-mt-24">
-											<h3 className="text-2xl font-mono font-bold pb-6 text-amber-50">Calculations</h3>
-											<pre className="!text-xs border border-gray-500/30 overflow-x-auto max-w-full">
+											<h3 className="text-2xl font-bold pb-2 text-white">Calculations</h3>
+											<p className="mb-6">
+												Strava segments returned through Strava’s API include the latitude and longitude of the start and end points. These coordinates are currently used to calculate the bearing of each segment. However, this approach is inaccurate for segments that do not follow a straight path. In the future, I plan to improve this by using the segment’s polyline encoding, which captures the full geometry of the route, to calculate a more accurate wind score for segments with curves and turns.
+											</p>
+											<div className="bg-blue-500/10 border-l-4 border-blue-400/40 px-4 py-3 mb-6 rounded-r-lg">
+												<p className="text-sm text-blue-200/80 italic">
+													<span className="font-semibold text-blue-300">NOTE:</span> The methodology for the bearing calculation can be found {' '}
+														<a 
+															href="https://www.movable-type.co.uk/scripts/latlong.html" 
+															target="_blank"
+															rel="noopener noreferrer"
+															className="text-blue-400 font-semibold"
+														>
+															here
+														</a>.
+												</p>
+											</div>
+											<pre className="!text-xs border border-gray-500/30 overflow-x-auto max-w-full !mb-6">
 												<code className="language-javascript line-numbers whitespace-pre break-all">
 													{`export const calculateSegmentBearing = (startLatLng, endLatLng) => {
 	const [lat1, lng1] = startLatLng;
@@ -166,13 +168,26 @@ export const TailwindKOMPage = () => {
 
 	let bearing = Math.atan2(y, x) * 180 / Math.PI;
 	return (bearing + 360) % 360;
-};`}
+}`}
+												</code>
+											</pre>
+											<p className="mb-6">
+												The cosine of the angle difference between a segments bearing and the direction of the wind is calculated. This value is the allignment factor and will be 1 for perfect tailwinds, 0 for crosswinds, and -1 for perfect headwinds.
+											</p>
+											<pre className="!text-xs border border-gray-500/30 overflow-x-auto max-w-full">
+												<code className="language-javascript line-numbers whitespace-pre break-all">
+													{`const calculateAlignmentFactor = (angleDifference) => {
+	return -1 * Math.cos(angleDifference * Math.PI / 180);
+}`}
 												</code>
 											</pre>
 										</div>
 										
 										<div data-section="scoring" id="scoring" className="mt-8 scroll-mt-24">
-											<h3 className="text-2xl font-mono font-bold pb-6 text-amber-50">Scoring</h3>
+											<h3 className="text-2xl font-bold pb-2 text-white">Scoring</h3>
+											<p>
+												The power of the wind is scaled using an exponential function to ensure that strong winds are scored much higher. Wind scores start at a base score based on allignment factor and increase with how fast and alligned the wind is.
+											</p>
 											<pre className="!text-xs border border-gray-500/30 overflow-x-auto max-w-full">
 												<code className="language-javascript line-numbers whitespace-pre break-all">
 												{`const calculateScore = (alignmentFactor, windSpeed) => {
@@ -203,13 +218,16 @@ return Math.max(0, Math.min(100, Math.round(score)));
 								<div className="h-px my-8 bg-gradient-to-r from-transparent via-gray-300/30 to-transparent"></div>
 
 								<div data-section="data" id="data" className="mb-12 scroll-mt-24">
-									<h2 className="text-3xl sm:text-4xl font-mono font-bold pb-6 text-amber-50">
+									<h2 className="text-3xl sm:text-4xl font-bold text-white">
 										Data
 									</h2>
 									<div className="prose prose-lg max-w-none">
 
 										<div data-section="stravaapi" id="stravaapi" className="mt-8 scroll-mt-24">
-											<h3 className="text-2xl font-mono font-bold pb-6 text-amber-50">Strava API</h3>
+											<h3 className="text-2xl font-bold pb-6 text-white">Strava API</h3>
+											<p>
+												
+											</p>
 										</div>
 
 										<div data-section="openweathermapapi" id="openweathermapapi" className="mt-8 scroll-mt-24">
