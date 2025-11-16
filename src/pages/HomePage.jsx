@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 import { Header } from "../components/Header";
 import { ProjectCard } from "../components/ProjectCard";
 import { ScrollDownArrow } from "../components/ScrollDownArrow";
@@ -22,7 +21,7 @@ export const HomePage = () => {
         { line1: "SCROLL DOWN", line2: "TO SEE MORE >" }
     ];
 
-    // Typewriter effect
+    // ------------------- TYPEWRITER -------------------
     useEffect(() => {
         const message = messages[currentMessageIndex];
         const line1Full = message.line1;
@@ -34,7 +33,6 @@ export const HomePage = () => {
         setShowCursor(true);
 
         const typeInterval = setInterval(() => {
-            // Type the current character first
             if (currentIndex <= line1Full.length) {
                 setDisplayText({
                     line1: line1Full.substring(0, currentIndex),
@@ -49,77 +47,75 @@ export const HomePage = () => {
 
             currentIndex++;
 
-            // Pause for 2 intervals after completing line 1
             if (currentIndex === line1Full.length + 1 && pauseCounter < 2) {
                 pauseCounter++;
-                currentIndex--; // Don't advance during pause
+                currentIndex--;
                 return;
             }
 
             if (currentIndex > totalChars) {
                 clearInterval(typeInterval);
-                // Wait 2 seconds, then cycle to next message
                 setTimeout(() => {
                     setCurrentMessageIndex((prev) => (prev + 1) % messages.length);
                 }, 2000);
             }
-        }, 180); // Type speed in ms
+        }, 180);
+
         return () => clearInterval(typeInterval);
     }, [currentMessageIndex]);
 
-    // --- IMAGE POSITION MATH ---
+
+    // ------------------- SAFARI-FIXED IMAGE POSITION -------------------
     useEffect(() => {
-        const imgWidth = 4162;           // PNG width
-        const imgHeight = 3714;          // PNG height
-        const lcdX = 2414;               // LCD left edge in PNG
-        const lcdY = 1795;               // LCD top edge in PNG
-        const lcdWidth = 1597;           // LCD width in PNG
-        const lcdHeight = 335;           // LCD height in PNG
-        const lcdCenterX = lcdX + (lcdWidth / 2);  // LCD center
+        const imgWidth = 4162;
+        const imgHeight = 3714;
+        const lcdX = 2414;
+        const lcdY = 1795;
+        const lcdWidth = 1597;
+        const lcdHeight = 335;
+        const lcdCenterX = lcdX + lcdWidth / 2;
 
         function update() {
             const vw = window.innerWidth;
-            // Use visualViewport height (small viewport) to match svh behavior
-            const vh = window.visualViewport?.height || window.innerHeight;
+            const vh = window.innerHeight; // SAFARI-SAFE HEIGHT
 
-            // Calculate actual displayed image dimensions
+            // Height now uses dvh via CSS, so this matches exactly
             const displayHeight = Math.min(vh, 1000);
             const displayWidth = (imgWidth / imgHeight) * displayHeight;
             const scale = displayHeight / imgHeight;
 
-            // Calculate image position
             let imageLeft;
             if (displayWidth <= vw) {
                 imageLeft = (vw - displayWidth) / 2;
             } else {
                 const lcdPositionInDisplay = lcdCenterX * scale;
-                imageLeft = (vw / 2) - lcdPositionInDisplay;
+                imageLeft = vw / 2 - lcdPositionInDisplay;
             }
+
             setLeft(imageLeft);
 
-            // Calculate LCD rectangle position on screen
-            const lcdLeftOnScreen = imageLeft + (lcdX * scale);
-            const lcdTopOnScreen = (vh / 2) - (displayHeight / 2) + (lcdY * scale);
-            const lcdWidthOnScreen = lcdWidth * scale;
-            const lcdHeightOnScreen = lcdHeight * scale;
+            // Vertical positioning UPDATED FOR SAFARI
+            const topOffset = (vh - displayHeight) / 2;
+
+            const lcdLeftOnScreen = imageLeft + lcdX * scale;
+            const lcdTopOnScreen = topOffset + lcdY * scale;
 
             setLcdRect({
                 left: lcdLeftOnScreen,
                 top: lcdTopOnScreen,
-                width: lcdWidthOnScreen,
-                height: lcdHeightOnScreen
+                width: lcdWidth * scale,
+                height: lcdHeight * scale
             });
         }
 
         update();
         window.addEventListener("resize", update);
-
         return () => window.removeEventListener("resize", update);
     }, []);
 
+
     return (
         <div className='min-h-screen'>
-
             <Header />
 
             <div className="relative overflow-hidden bg-gray-800 min-h-screen flex items-center justify-center">
@@ -131,21 +127,16 @@ export const HomePage = () => {
                         top: "50%",
                         transform: "translateY(-50%)",
                         left: `${left}px`,
-
-                        // never shrink
                         maxWidth: "none",
                         maxHeight: "none",
-
-                        // scale down only for viewport height
-                        height: "min(100svh, 1000px)",
+                        height: "min(100dvh, 1000px)", // SAFARI FIX
                         width: "auto",
-
                         pointerEvents: "none",
                         userSelect: "none",
                     }}
                 />
 
-                {/* LCD Rectangle Overlay with glow */}
+                {/* LCD Glow Overlay */}
                 <div
                     style={{
                         position: "absolute",
@@ -162,7 +153,7 @@ export const HomePage = () => {
                     }}
                 />
 
-                {/* LCD Text Display - Pixel-based 16x2 */}
+                {/* LCD Text */}
                 <div
                     style={{
                         position: "absolute",
@@ -176,8 +167,22 @@ export const HomePage = () => {
                     }}
                 >
                     <LCDDisplay
-                        line1={displayText.line1 + (showCursor && displayText.line2 === '' && displayText.line1.length < messages[currentMessageIndex].line1.length ? '_' : '')}
-                        line2={displayText.line2 + (showCursor && displayText.line2.length < messages[currentMessageIndex].line2.length && displayText.line2.length > 0 ? '_' : '')}
+                        line1={
+                            displayText.line1 +
+                            (showCursor &&
+                                displayText.line2 === '' &&
+                                displayText.line1.length < messages[currentMessageIndex].line1.length
+                                ? '_'
+                                : '')
+                        }
+                        line2={
+                            displayText.line2 +
+                            (showCursor &&
+                                displayText.line2.length < messages[currentMessageIndex].line2.length &&
+                                displayText.line2.length > 0
+                                ? '_'
+                                : '')
+                        }
                         width={lcdRect.width}
                         height={lcdRect.height}
                         opacity={1}
@@ -205,7 +210,6 @@ export const HomePage = () => {
             </div>
 
             <Footer />
-
         </div>
     );
 };
