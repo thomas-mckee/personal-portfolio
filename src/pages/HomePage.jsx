@@ -77,9 +77,19 @@ export const HomePage = () => {
 
         function update() {
             const vw = window.innerWidth;
-            const vh = window.innerHeight; // SAFARI-SAFE HEIGHT
+            const vh = window.innerHeight;
 
-            // Height now uses dvh via CSS, so this matches exactly
+            // IMPORTANT: Safari vertical shift when URL bar is visible
+            const offsetTop = window.visualViewport?.offsetTop || 0;
+
+            const imgWidth = 4162;
+            const imgHeight = 3714;
+            const lcdX = 2414;
+            const lcdY = 1795;
+            const lcdWidth = 1597;
+            const lcdHeight = 335;
+            const lcdCenterX = lcdX + lcdWidth / 2;
+
             const displayHeight = Math.min(vh, 1000);
             const displayWidth = (imgWidth / imgHeight) * displayHeight;
             const scale = displayHeight / imgHeight;
@@ -94,8 +104,8 @@ export const HomePage = () => {
 
             setLeft(imageLeft);
 
-            // Vertical positioning UPDATED FOR SAFARI
-            const topOffset = (vh - displayHeight) / 2;
+            // Correct vertical alignment with Safari offset
+            const topOffset = (vh - displayHeight) / 2 + offsetTop;
 
             const lcdLeftOnScreen = imageLeft + lcdX * scale;
             const lcdTopOnScreen = topOffset + lcdY * scale;
@@ -107,6 +117,7 @@ export const HomePage = () => {
                 height: lcdHeight * scale
             });
         }
+
 
         update();
         window.addEventListener("resize", update);
