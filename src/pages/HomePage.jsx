@@ -77,12 +77,9 @@ export const HomePage = () => {
         const lcdHeight = 335;           // LCD height in PNG
         const lcdCenterX = lcdX + (lcdWidth / 2);  // LCD center
 
-        // Store initial viewport height to prevent mobile address bar resize issues
-        const initialVh = window.innerHeight;
-
         function update() {
             const vw = window.innerWidth;
-            const vh = initialVh;
+            const vh = window.innerHeight;
 
             // Calculate actual displayed image dimensions
             const displayHeight = Math.min(vh, 1000);
