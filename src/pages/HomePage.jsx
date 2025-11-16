@@ -122,7 +122,7 @@ export const HomePage = () => {
 
             <div className="relative overflow-hidden bg-gray-800 min-h-screen flex items-center justify-center">
                 <img
-                    src="/images/6502_2.png"
+                    src="/images/6502.webp"
                     alt="6502 breadboard"
                     style={{
                         position: "absolute",
