@@ -40,15 +40,6 @@ export const ProjectsPage = () => {
         <div className="min-h-screen bg-gray-800 relative overflow-hidden">
             <Header />
 
-            {/* Background decoration - Projects: Tech & dynamic */}
-            {/* <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-1/8 right-1/12 w-80 h-80 bg-blue-400 rounded-full blur-3xl"></div>
-                <div className="absolute top-1/2 left-1/8 w-96 h-96 bg-yellow-300 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-1/5 right-1/3 w-64 h-64 bg-slate-300 rounded-full blur-3xl"></div>
-                <div className="absolute top-3/4 left-2/3 w-52 h-52 bg-blue-400 rounded-full blur-2xl"></div>
-                <div className="absolute bottom-1/3 left-1/4 w-40 h-40 bg-yellow-300 rounded-full blur-xl"></div>
-            </div> */}
-
             <div className="py-24 sm:py-32 md:py-40 relative z-10 font-mono">
                 <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6">
                     <div className="inline-block">

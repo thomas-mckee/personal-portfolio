@@ -7,7 +7,7 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
-export const TailwindKOMPage = () => {
+export const RubiksCubeSolverPage = () => {
 	useEffect(() => {
 		Prism.highlightAll();
 	}, []);
@@ -48,7 +48,7 @@ export const TailwindKOMPage = () => {
 								<div className="flex flex-row items-end justify-between gap-4 sm:gap-8 mb-4">
 									<div className="inline-flex flex-col">
 										<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-mono font-extrabold text-amber-50 mb-2">
-											TailwindKOM
+											Rubik's Cube Solver
 										</h1>
 										<div className="h-1 bg-lcd-blue shadow-lcd-glow rounded-lg"></div>
 									</div>

@@ -1,11 +1,16 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Share+Tech&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Share+Tech&family=Electrolize&display=swap');
 
 @theme {
   --font-mono: 'Share Tech Mono', monospace;
-  --font-tech: 'Share Tech', sans-serif;
-  --color-lcd-blue: rgb(74, 127, 232);
-  --shadow-lcd-glow: 0 0 20px rgba(74, 127, 232, 0.8);
+  --font-tech: 'Share Tech', monospace;
+  --color-lcd-blue: rgb(83, 170, 255, 0.8);
+  --shadow-lcd-glow: 0 0 20px rgba(83, 170, 255, 0.8);
+}
+
+.font-tech {
+  letter-spacing: -0.00em;
+  word-spacing: -0.1em;
 }
 
 /* Custom styles to override the background color */

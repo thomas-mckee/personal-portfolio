@@ -47,7 +47,7 @@ export const HomePage = () => {
 
             currentIndex++;
 
-            if (currentIndex === line1Full.length + 1 && pauseCounter < 2) {
+            if (currentIndex === line1Full.length + 1 && pauseCounter < 2) { // pause for two writes between lines
                 pauseCounter++;
                 currentIndex--;
                 return;
@@ -57,9 +57,9 @@ export const HomePage = () => {
                 clearInterval(typeInterval);
                 setTimeout(() => {
                     setCurrentMessageIndex((prev) => (prev + 1) % messages.length);
-                }, 2000);
+                }, 3000);
             }
-        }, 180);
+        }, 150); // char write speed
 
         return () => clearInterval(typeInterval);
     }, [currentMessageIndex]);
@@ -195,7 +195,7 @@ export const HomePage = () => {
             </div>
 
             <div className="relative bg-gray-800 pb-20 px-4 sm:px-6 pt-12">
-                <div className="max-w-7xl mx-auto mt-20">
+                <div className="max-w-7xl mx-auto mt-10 sm:mt-20">
                     <div className="inline-block mb-8 sm:mb-10 md:mb-12">
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-1 font-mono font-extrabold text-amber-50">
                             Featured Projects

@@ -6,6 +6,7 @@ import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { ProjectsPage } from './pages/ProjectsPage';
 import { TailwindKOMPage } from './pages/TailwindkomPage';
+import { RubiksCubeSolverPage } from './pages/RubiksCubeSolverPage';
 
 import './index.css'
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: '/projects/tailwindkom',
     element: <TailwindKOMPage />,
+  },
+  {
+    path: '/projects/rubikscubesolver',
+    element: <RubiksCubeSolverPage />
   },
 ]);
 

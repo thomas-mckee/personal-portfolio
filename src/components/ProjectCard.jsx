@@ -1,13 +1,16 @@
 export const ProjectCard = ({ project }) => {
     const handleViewProject = () => {
-        // Navigate to individual project page
-        window.location.href = `projects/${project.id}`;
+        if (project.hasPage) {
+            window.location.href = `projects/${project.id}`;
+        } else if (project.github) {
+            window.open(project.github, '_blank');
+        }
     };
 
     return (
-        <div className="mb-10">
+        <div className="mb-3 sm:mb-10">
             {/* Video Container */}
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 cursor-pointer group" onClick={handleViewProject}>
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 cursor-pointer group border-2 border-gray-700 shadow-[inset_0_2px_8px_rgba(0,0,0,0.6),inset_0_4px_12px_rgba(0,0,0,0.4)]" onClick={handleViewProject}>
                 {project.youtubeId ? (
                     <iframe
                         src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${project.youtubeId}&controls=0&showinfo=0&rel=0&modestbranding=1`}
@@ -40,7 +43,7 @@ export const ProjectCard = ({ project }) => {
             {/* Project Info */}
             <div>
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-mono font-bold text-amber-50 mb-2">{project.title}</h3>
-                <p className="text-base sm:text-lg text-amber-50/60 leading-relaxed mb-4 font-tech">{project.description}</p>
+                <p className="text-base font-tech sm:text-lg text-amber-50/60 leading-relaxed mb-4">{project.description}</p>
                 
                 {/* Continue Reading + Tags Row */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
