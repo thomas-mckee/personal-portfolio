@@ -77,10 +77,13 @@ export const HomePage = () => {
         const lcdHeight = 335;           // LCD height in PNG
         const lcdCenterX = lcdX + (lcdWidth / 2);  // LCD center
 
-        function update() {
-            // Use visualViewport for more accurate mobile viewport (accounts for browser UI)
-            const vw = window.visualViewport?.width || window.innerWidth;
-            const vh = window.visualViewport?.height || window.innerHeight;
+        // Store initial viewport height to prevent mobile address bar resize issues
+        // Use the smaller of window.innerHeight or visualViewport for Safari
+        const initialVh = window.visualViewport?.height || window.innerHeight;
+
+        function update(useCurrentHeight = false) {
+            const vw = window.innerWidth;
+            const vh = useCurrentHeight ? (window.visualViewport?.height || window.innerHeight) : initialVh;
 
             // Calculate actual displayed image dimensions
             const displayHeight = Math.min(vh, 1000);
@@ -113,24 +116,18 @@ export const HomePage = () => {
 
         update();
 
-        // Recalculate once after a short delay to ensure viewport is settled
-        const timer = setTimeout(update, 200);
+        // Only recalculate on actual window resize (orientation change), not on scroll/address bar
+        let resizeTimeout;
+        const handleResize = () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => update(true), 150);
+        };
 
-        window.addEventListener("resize", update);
-        window.addEventListener("load", update);
-
-        // Listen for visualViewport changes (mobile browser UI)
-        if (window.visualViewport) {
-            window.visualViewport.addEventListener("resize", update);
-        }
+        window.addEventListener("resize", handleResize);
 
         return () => {
-            window.removeEventListener("resize", update);
-            window.removeEventListener("load", update);
-            if (window.visualViewport) {
-                window.visualViewport.removeEventListener("resize", update);
-            }
-            clearTimeout(timer);
+            window.removeEventListener("resize", handleResize);
+            clearTimeout(resizeTimeout);
         };
     }, []);
 
