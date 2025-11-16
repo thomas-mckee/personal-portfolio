@@ -79,7 +79,8 @@ export const HomePage = () => {
 
         function update() {
             const vw = window.innerWidth;
-            const vh = window.innerHeight;
+            // Use visualViewport for more accurate height that matches dvh
+            const vh = window.visualViewport?.height || window.innerHeight;
 
             // Calculate actual displayed image dimensions
             const displayHeight = Math.min(vh, 1000);
