@@ -65,10 +65,11 @@ export const HomePage = () => {
     }, [currentMessageIndex]);
 
 
-    // ------------------- SAFARI-FIXED IMAGE POSITION -------------------
+    // ------------------- IMAGE/LCD ALIGNMENT -------------------
     useEffect(() => {
         const imgWidth = 4162;
         const imgHeight = 3714;
+
         const lcdX = 2414;
         const lcdY = 1795;
         const lcdWidth = 1597;
@@ -78,17 +79,6 @@ export const HomePage = () => {
         function update() {
             const vw = window.innerWidth;
             const vh = window.innerHeight;
-
-            // IMPORTANT: Safari vertical shift when URL bar is visible
-            const offsetTop = window.visualViewport?.offsetTop || 0;
-
-            const imgWidth = 4162;
-            const imgHeight = 3714;
-            const lcdX = 2414;
-            const lcdY = 1795;
-            const lcdWidth = 1597;
-            const lcdHeight = 335;
-            const lcdCenterX = lcdX + lcdWidth / 2;
 
             const displayHeight = Math.min(vh, 1000);
             const displayWidth = (imgWidth / imgHeight) * displayHeight;
@@ -104,11 +94,11 @@ export const HomePage = () => {
 
             setLeft(imageLeft);
 
-            // Correct vertical alignment with Safari offset
-            const topOffset = (vh - displayHeight) / 2 + offsetTop;
+            const imageTop = vh / 2 - displayHeight / 2;
 
+            // Now compute LCD position RELATIVE TO IMAGE
             const lcdLeftOnScreen = imageLeft + lcdX * scale;
-            const lcdTopOnScreen = topOffset + lcdY * scale;
+            const lcdTopOnScreen = imageTop + lcdY * scale;
 
             setLcdRect({
                 left: lcdLeftOnScreen,
@@ -117,7 +107,6 @@ export const HomePage = () => {
                 height: lcdHeight * scale
             });
         }
-
 
         update();
         window.addEventListener("resize", update);
@@ -130,6 +119,8 @@ export const HomePage = () => {
             <Header />
 
             <div className="relative overflow-hidden bg-gray-800 min-h-screen flex items-center justify-center">
+                
+                {/* IMAGE */}
                 <img
                     src="/images/6502.webp"
                     alt="6502 breadboard"
@@ -140,14 +131,14 @@ export const HomePage = () => {
                         left: `${left}px`,
                         maxWidth: "none",
                         maxHeight: "none",
-                        height: "min(100dvh, 1000px)", // SAFARI FIX
+                        height: "min(100dvh, 1000px)", 
                         width: "auto",
                         pointerEvents: "none",
                         userSelect: "none",
                     }}
                 />
 
-                {/* LCD Glow Overlay */}
+                {/* LCD Glow */}
                 <div
                     style={{
                         position: "absolute",
