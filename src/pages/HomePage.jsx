@@ -78,8 +78,9 @@ export const HomePage = () => {
         const lcdCenterX = lcdX + (lcdWidth / 2);  // LCD center
 
         function update() {
-            const vw = window.innerWidth;
-            const vh = window.innerHeight;
+            // Use visualViewport for more accurate mobile viewport (accounts for browser UI)
+            const vw = window.visualViewport?.width || window.innerWidth;
+            const vh = window.visualViewport?.height || window.innerHeight;
 
             // Calculate actual displayed image dimensions
             const displayHeight = Math.min(vh, 1000);
@@ -112,12 +113,23 @@ export const HomePage = () => {
 
         update();
 
-        // Force recalculation on mobile after a short delay to handle viewport initialization
-        const timer = setTimeout(update, 100);
+        // Recalculate once after a short delay to ensure viewport is settled
+        const timer = setTimeout(update, 200);
 
         window.addEventListener("resize", update);
+        window.addEventListener("load", update);
+
+        // Listen for visualViewport changes (mobile browser UI)
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener("resize", update);
+        }
+
         return () => {
             window.removeEventListener("resize", update);
+            window.removeEventListener("load", update);
+            if (window.visualViewport) {
+                window.visualViewport.removeEventListener("resize", update);
+            }
             clearTimeout(timer);
         };
     }, []);
