@@ -136,7 +136,7 @@ export const HomePage = () => {
                         maxHeight: "none",
 
                         // scale down only for viewport height
-                        height: "min(100vh, 1000px)",
+                        height: "min(100dvh, 1000px)",
                         width: "auto",
 
                         pointerEvents: "none",
