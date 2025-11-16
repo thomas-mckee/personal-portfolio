@@ -79,7 +79,7 @@ export const HomePage = () => {
 
         function update() {
             const vw = window.innerWidth;
-            // Use visualViewport for more accurate height that matches dvh
+            // Use visualViewport height (small viewport) to match svh behavior
             const vh = window.visualViewport?.height || window.innerHeight;
 
             // Calculate actual displayed image dimensions
@@ -137,7 +137,7 @@ export const HomePage = () => {
                         maxHeight: "none",
 
                         // scale down only for viewport height
-                        height: "min(100dvh, 1000px)",
+                        height: "min(100svh, 1000px)",
                         width: "auto",
 
                         pointerEvents: "none",
