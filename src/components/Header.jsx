@@ -10,7 +10,7 @@ export const Header = () => {
         const handleScroll = () => {
             // Show header after scrolling down 100px on homepage, always show on other pages
             if (location.pathname === '/') {
-                setIsVisible(window.scrollY > 100);
+                setIsVisible(window.scrollY > 1);
             } else {
                 setIsVisible(true);
             }
@@ -44,15 +44,15 @@ export const Header = () => {
     };
 
     return (
-            <header className={`fixed top-5 left-1/2 transform -translate-x-1/2 z-50 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-        <div className="relative w-[500px] h-[100px]">
+            <header className={`fixed top-3 sm:top-5 left-1/2 transform -translate-x-1/2 z-50 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+        <div className="relative w-[300px] h-[70px] sm:w-[300px] sm:h-[100px]">
             <img
-                src="/images/bitmap.svg"
+                src="/images/headerIC1.svg"
                 alt="IC chip"
                 className="absolute inset-0 w-full h-full object-contain -z-10"
             />
 
-            <nav className="absolute text-xl inset-0 flex items-center justify-evenly px-26 z-10" style={{fontFamily: "'Share Tech Mono', monospace"}}>
+            <nav className="absolute inset-0 flex items-center justify-center gap-2 sm:gap-4 px-4 sm:px-8 pl-3 sm:pl-10 z-10 font-mono">
                 {navItems.map((item) => (
                     <button
                         key={item.id}
@@ -61,10 +61,10 @@ export const Header = () => {
                             window.scrollTo(0, 0);
                         }}
                         className={`
-                            relative cursor-pointer mx-1 px-3 py-2 text-md font-medium rounded transition-all duration-300
+                            relative cursor-pointer px-2 sm:px-3 py-1 sm:py-2 text-sm sm:text-lg font-medium rounded transition-all duration-300
                             ${getActiveItem() === item.id
-                            ? 'text-amber-100 bg-amber-100/10 border border-amber-200/10'
-                            : 'text-amber-200/70 hover:text-amber-100 hover:bg-amber-100/10'}
+                            ? 'text-amber-50 bg-amber-100/10 border border-amber-200/10'
+                            : 'text-amber-100/70 hover:text-amber-50 hover:bg-amber-100/10'}
                         `}
                     >
                         {item.label}

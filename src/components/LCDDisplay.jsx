@@ -352,7 +352,7 @@ export const LCDDisplay = ({ line1 = '', line2 = '', width, height, opacity = 1 
                         y={charY + rowIndex * pixelSize}
                         width={pixelSize * 0.9}
                         height={pixelSize * 0.9}
-                        fill={pixel === 1 ? "white" : "rgba(83, 170, 255, 0.3)"}
+                        fill={pixel === 1 ? "#fffbea" : "rgba(83, 170, 255, 0.3)"}
                     />
                 );
             });

@@ -71,10 +71,10 @@ export const HomePage = () => {
     useEffect(() => {
         const imgWidth = 4162;           // PNG width
         const imgHeight = 3714;          // PNG height
-        const lcdX = 2410;               // LCD left edge in PNG
-        const lcdY = 1790;               // LCD top edge in PNG
-        const lcdWidth = 1610;           // LCD width in PNG
-        const lcdHeight = 340;           // LCD height in PNG
+        const lcdX = 2414;               // LCD left edge in PNG
+        const lcdY = 1795;               // LCD top edge in PNG
+        const lcdWidth = 1597;           // LCD width in PNG
+        const lcdHeight = 335;           // LCD height in PNG
         const lcdCenterX = lcdX + (lcdWidth / 2);  // LCD center
 
         function update() {
@@ -120,7 +120,7 @@ export const HomePage = () => {
 
             <Header />
 
-            <div className="relative overflow-hidden bg-gray-900 min-h-screen flex items-center justify-center">
+            <div className="relative overflow-hidden bg-gray-800 min-h-screen flex items-center justify-center">
                 <img
                     src="/images/6502_2.png"
                     alt="6502 breadboard"
@@ -153,8 +153,10 @@ export const HomePage = () => {
                         height: `${lcdRect.height}px`,
                         backgroundColor: "rgba(83, 170, 255, 0.8)",
                         borderRadius: "6px",
-                        boxShadow: "0 0 40px rgba(83, 170, 255, 0.8)",
+                        boxShadow: "0 0 100px rgba(83, 170, 255, 0.8)",
                         pointerEvents: "none",
+                        transform: "rotate(-0.5deg)",
+                        transformOrigin: "center",
                     }}
                 />
 
@@ -167,6 +169,8 @@ export const HomePage = () => {
                         width: `${lcdRect.width}px`,
                         height: `${lcdRect.height}px`,
                         pointerEvents: "none",
+                        transform: "rotate(-0.5deg)",
+                        transformOrigin: "center",
                     }}
                 >
                     <LCDDisplay
@@ -181,13 +185,13 @@ export const HomePage = () => {
                 <ScrollDownArrow />
             </div>
 
-            <div className="relative bg-gray-900 pb-20 px-4 sm:px-6 pt-12">
-                <div className="max-w-7xl mx-auto">
+            <div className="relative bg-gray-800 pb-20 px-4 sm:px-6 pt-12">
+                <div className="max-w-7xl mx-auto mt-20">
                     <div className="inline-block mb-8 sm:mb-10 md:mb-12">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 font-extrabold text-white">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-1 font-mono font-extrabold text-amber-50">
                             Featured Projects
                         </h1>
-                        <div className="h-1 bg-gradient-to-r from-blue-400 to-yellow-300 rounded-full"></div>
+                        <div className="h-1 rounded-full bg-lcd-blue shadow-lcd-glow"></div>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">

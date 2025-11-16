@@ -1,4 +1,12 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Share+Tech&display=swap');
+
+@theme {
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-tech: 'Share Tech', sans-serif;
+  --color-lcd-blue: rgb(74, 127, 232);
+  --shadow-lcd-glow: 0 0 20px rgba(74, 127, 232, 0.8);
+}
 
 /* Custom styles to override the background color */
 pre[class*="language-"] {

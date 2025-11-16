@@ -37,23 +37,25 @@ export const ProjectsPage = () => {
     const clearFilters = () => setSelectedTags([]);
 
     return (
-        <div className="min-h-screen bg-gray-900 relative overflow-hidden">
+        <div className="min-h-screen bg-gray-800 relative overflow-hidden">
             <Header />
 
             {/* Background decoration - Projects: Tech & dynamic */}
-            <div className="absolute inset-0 opacity-10">
+            {/* <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-1/8 right-1/12 w-80 h-80 bg-blue-400 rounded-full blur-3xl"></div>
                 <div className="absolute top-1/2 left-1/8 w-96 h-96 bg-yellow-300 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-1/5 right-1/3 w-64 h-64 bg-slate-300 rounded-full blur-3xl"></div>
                 <div className="absolute top-3/4 left-2/3 w-52 h-52 bg-blue-400 rounded-full blur-2xl"></div>
                 <div className="absolute bottom-1/3 left-1/4 w-40 h-40 bg-yellow-300 rounded-full blur-xl"></div>
-            </div>
+            </div> */}
 
-            <div className="py-24 sm:py-32 md:py-40 relative z-10">
+            <div className="py-24 sm:py-32 md:py-40 relative z-10 font-mono">
                 <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6">
                     <div className="inline-block">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 font-extrabold text-white">Projects</h1>
-                        <div className="h-1 bg-gradient-to-r from-blue-400 to-yellow-300 rounded-full"></div>
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-1 font-mono font-extrabold text-amber-50">
+                            Projects
+                        </h1>
+                        <div className="h-1 rounded-full bg-lcd-blue shadow-lcd-glow"></div>
                     </div>
 
                     {/* Header and Filter Controls */}
@@ -65,12 +67,12 @@ export const ProjectsPage = () => {
                                     {selectedTags.map(tag => (
                                         <span 
                                             key={tag}
-                                            className="inline-flex items-center gap-2 px-2 sm:px-3 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-blue-300 text-xs sm:text-sm font-medium"
+                                            className="inline-flex items-center gap-2 px-2 sm:px-3 py-1 bg-blue-500/20 border border-lcd-blue rounded-lg text-blue-300 text-xs sm:text-sm"
                                         >
                                             {tag}
                                             <button 
                                                 onClick={() => toggleTag(tag)}
-                                                className="hover:bg-blue-400/20 rounded-full p-0.5 transition-colors cursor-pointer"
+                                                className="hover:bg-blue-400/20 p-0.5 transition-colors cursor-pointer"
                                             >
                                                 <X className="w-3 h-3" />
                                             </button>
@@ -90,7 +92,7 @@ export const ProjectsPage = () => {
                         <div className="relative self-start sm:self-auto">
                             <button
                                 onClick={() => setIsFilterOpen(!isFilterOpen)}
-                                className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-gray-800/50 border border-gray-600/50 rounded-lg text-gray-300 hover:text-white hover:bg-gray-700/50 transition-all duration-200 cursor-pointer text-sm sm:text-base"
+                                className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-gray-900/50 border rounded-lg text-amber-50/90 hover:text-amber-50 hover:bg-gray-700/50 transition-all duration-200 cursor-pointer text-sm sm:text-base"
                             >
                                 <Funnel className="w-4 h-4" />
                                 <span>Filter</span>
@@ -98,9 +100,9 @@ export const ProjectsPage = () => {
                             </button>
 
                             {isFilterOpen && (
-                                <div className="absolute sm:right-0 sm:left-auto top-full mt-2 w-50 bg-gray-800/95 backdrop-blur-sm border border-gray-600/50 rounded-lg shadow-2xl z-20">
+                                <div className="absolute sm:right-0 sm:left-auto top-full mt-2 w-50 bg-gray-900/95 backdrop-blur-sm border border-gray-600/50 rounded-lg shadow-2xl z-20">
                                     <div className="p-4">
-                                        <h3 className="text-white font-medium mb-3">Filter by Type</h3>
+                                        <h3 className="text-white mb-3">Filter by Type</h3>
                                         <div className="max-h-64 overflow-y-auto space-y-2">
                                             {allFilters.map(tag => (
                                                 <label 
@@ -111,9 +113,9 @@ export const ProjectsPage = () => {
                                                         type="checkbox"
                                                         checked={selectedTags.includes(tag)}
                                                         onChange={() => toggleTag(tag)}
-                                                        className="rounded border-gray-600 bg-gray-700 text-blue-500 focus:ring-blue-500 focus:ring-offset-gray-800"
+                                                        className="rounded border-gray-600 bg-gray-700 text-lcd-blue focus:ring-lcd-blue focus:ring-offset-gray-800"
                                                     />
-                                                    <span className="text-gray-300 text-sm">{tag}</span>
+                                                    <span className="text-amber-50/70 text-sm">{tag}</span>
                                                 </label>
                                             ))}
                                         </div>
