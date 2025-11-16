@@ -78,12 +78,11 @@ export const HomePage = () => {
         const lcdCenterX = lcdX + (lcdWidth / 2);  // LCD center
 
         // Store initial viewport height to prevent mobile address bar resize issues
-        // Use the smaller of window.innerHeight or visualViewport for Safari
-        const initialVh = window.visualViewport?.height || window.innerHeight;
+        const initialVh = window.innerHeight;
 
-        function update(useCurrentHeight = false) {
+        function update() {
             const vw = window.innerWidth;
-            const vh = useCurrentHeight ? (window.visualViewport?.height || window.innerHeight) : initialVh;
+            const vh = initialVh;
 
             // Calculate actual displayed image dimensions
             const displayHeight = Math.min(vh, 1000);
@@ -115,20 +114,9 @@ export const HomePage = () => {
         }
 
         update();
+        window.addEventListener("resize", update);
 
-        // Only recalculate on actual window resize (orientation change), not on scroll/address bar
-        let resizeTimeout;
-        const handleResize = () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => update(true), 150);
-        };
-
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-            clearTimeout(resizeTimeout);
-        };
+        return () => window.removeEventListener("resize", update);
     }, []);
 
     return (
