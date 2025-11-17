@@ -66,9 +66,11 @@ export const AboutPage = () => {
                             </div>
                         </div>
 
-                        <div className="space-y-4 sm:space-y-6 font-tech text-base sm:text-lg md:text-xl  leading-relaxed text-amber-50/80">
+                        <div className=" bg-gray-700/40 border border-gray-700/30 rounded-2xl p-4 space-y-4 sm:space-y-6 font-tech text-base sm:text-lg md:text-xl leading-relaxed text-amber-50/80">
                             <p>{bioData.bio.intro}</p>
+                            {/* <div className="h-px my-4 bg-gradient-to-r from-transparent via-amber-50/30 to-transparent"></div> */}
                             <p>{bioData.bio.interests}</p>
+                            {/* <div className="h-px my-4 bg-gradient-to-r from-transparent via-amber-50/30 to-transparent"></div> */}
                             <p>{bioData.bio.currentStatus}</p>
                         </div>               
                     </div>

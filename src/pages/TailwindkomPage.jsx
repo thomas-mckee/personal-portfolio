@@ -64,7 +64,7 @@ export const TailwindKOMPage = () => {
 							</div>
 
 							{/* Video Container */}
-							<div className="relative aspect-video rounded-2xl overflow-hidden mb-6 bg-gray-800 border border-gray-700/30">
+							<div className="relative aspect-video rounded-2xl overflow-hidden mb-4 bg-gray-800 border border-gray-700/30">
 								<iframe
 									src="https://www.youtube.com/embed/_FtWEi3yTPI?autoplay=1&mute=1&loop=1&playlist=_FtWEi3yTPI&controls=0&showinfo=0&rel=0&modestbranding=1"
 									title="TailwindKOM"
@@ -76,7 +76,7 @@ export const TailwindKOMPage = () => {
 							</div>
 
 							{/* Mobile Buttons */}
-							<div className="xl:hidden mb-4">
+							<div className="lg:hidden mb-4">
 								<div className="flex gap-3 justify-end">
 									<a
 										href="https://github.com/thomas-mckee/TailwindKOM"
@@ -104,11 +104,11 @@ export const TailwindKOMPage = () => {
 										Motivation
 									</h2>
 									<div className="prose prose-lg max-w-none">
-										<p className="mb-6">
+										<p className="mb-4">
 											Any cyclist who has ridden into 30 km/h headwinds knows, you wish it was a tailwind. This is the exact idea that sparked{' '}
 											<span className="font-bold">TailwindKOM</span>. I wanted to create a tool that would help cyclists plan their routes based on real-time weather conditions combined with Strava segments.
 										</p>
-										<p className="mb-6">
+										<p className="mb-4">
 											A segment on Strava is a user-created portion of roads or trails where users can compete for the fastest time to complete the segment, and in doing so claim to be the{' '}
 											<span className="font-bold text-yellow-200/90">King of the Mountain (KOM)</span> for that given segment. (For female cyclists,{' '}
 											<span className="font-bold text-yellow-200/90">Queen of the Mountain (QOM)</span> is used)
@@ -128,10 +128,10 @@ export const TailwindKOMPage = () => {
 									<div className="prose prose-lg max-w-none">
 										<div data-section="calculations" id="calculations" className="mt-8 scroll-mt-8">
 											<h3 className="text-2xl font-bold pb-2 text-white">Calculations</h3>
-											<p className="mb-6">
+											<p className="mb-4">
 												Strava segments returned through Strava’s API include the latitude and longitude of the start and end points. These coordinates are currently used to calculate the bearing of each segment. However, this approach is inaccurate for segments that do not follow a straight path. In the future, I plan to improve this by using the segment’s polyline encoding, which captures the full geometry of the route, to calculate a more accurate wind score for segments with curves and turns.
 											</p>
-											<div className="bg-blue-500/10 border-l-4 border-blue-400/40 px-4 py-3 mb-6 rounded-r-lg">
+											<div className="bg-blue-500/10 border-l-4 border-blue-400/40 px-4 py-3 mb-4 rounded-r-lg">
 												<p className="text-sm text-blue-200/80 italic">
 													<span className="font-semibold text-blue-300">NOTE:</span> The methodology for the bearing calculation can be found {' '}
 														<a 
@@ -144,7 +144,7 @@ export const TailwindKOMPage = () => {
 														</a>.
 												</p>
 											</div>
-											<pre className="!text-xs border border-gray-500/30 overflow-x-auto max-w-full !mb-6">
+											<pre className="!text-xs border border-gray-500/30 overflow-x-auto max-w-full !mb-4">
 												<code className="language-javascript line-numbers whitespace-pre break-all">
 													{`export const calculateSegmentBearing = (startLatLng, endLatLng) => {
 	const [lat1, lng1] = startLatLng;
@@ -162,7 +162,7 @@ export const TailwindKOMPage = () => {
 }`}
 												</code>
 											</pre>
-											<p className="mb-6">
+											<p className="mb-4">
 												The cosine of the angle difference between a segment's bearing and the direction of the wind is calculated. This value is the alignment factor and will be 1 for perfect tailwinds, 0 for crosswinds, and -1 for perfect headwinds.
 											</p>
 											<pre className="!text-xs border border-gray-500/30 overflow-x-auto max-w-full">
@@ -216,10 +216,10 @@ return Math.max(0, Math.min(100, Math.round(score)));
 
 										<div data-section="stravaapi" id="stravaapi" className="mt-8 scroll-mt-8">
 											<h3 className="text-2xl font-bold pb-6 text-white">Strava API</h3>
-											<p className="mb-6">
+											<p className="mb-4">
 												The Strava API provides access to a user's starred segments using OAuth 2.0 authentication. TailwindKOM prompts the user to connect their Strava account, and the application requests read permissions for their profile and activities. Strava's authentication flow exchanges an authorization code for an access token, which is stored and used for future API calls. The authentication system implements automatic token refreshing so that when an access token expires, the refresh token is used to obtain a new access token without requiring the user to log in again. 																			 
 											</p>
-											<p className="mb-6">
+											<p className="mb-4">
 												Once authenticated, the app fetches all of the starred segments using Strava's <span className="font-bold text-lcd-blue">`/segments/starred`</span> endpoint. Segment data returned by the API contains start and end coordinates, distance, elevation gain, etc. This data is used to calculate the wind score for each segment as well as to display information about each segment.
 											</p>
 
@@ -254,10 +254,10 @@ return Math.max(0, Math.min(100, Math.round(score)));
 										Conclusion
 									</h2>
 									<div className="prose prose-lg max-w-none">									
-										<p className="mb-6">
+										<p className="mb-4">
 											TailwindKOM is a project I built using the web development skills I learned over the Summer of 2025. While working on it, I got better at React, learned how to use TailwindCSS, and figured out how to work with different APIs to pull in useful data. It all started as an idea to solve a problem I kept running into on my bike rides so I turned that idea into a real tool. Now I use it on every windy ride to know exactly where big efforts are worth it.
 										</p>
-										<p className="mb-6">
+										<p className="mb-4">
 											TailwindKOM demonstrates how combining multiples APIs can create a practical tool for cyclists looking to optimizing their rides. By analyizing real-time wind conditions and matching them against segment bearings, TailwindKOM helps riders identify the best opportunity to chase personal records or claim KOMs on Strava segmenets.   
 
 										</p>
