@@ -2,7 +2,7 @@ export const projects = [
     {
         id: "tailwindkom",
         title: "TailwindKOM",
-        description: "A smart planning tool that analyzes your Strava segments against live weather data to identify which routes are most favorable given current wind direction and speed.",
+        description: "A smart planning tool that analyzes your Strava segments against live weather data to identify which routes are most favourable given current wind direction and speed.",
         youtubeId: "_FtWEi3yTPI",
         video: "/videos/tailwindkom_demo.mp4",
         tags: ["Full Stack", "API"],

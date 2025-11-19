@@ -7,15 +7,6 @@ export const AboutPage = () => {
     return (
         <div className='min-h-screen bg-gray-800 relative font-mono text-amber-50'>
             <Header />
-
-            {/* Background decoration - About: Personal & warm */}
-            {/* <div className="absolute inset-0 opacity-8">
-                <div className="absolute top-1/5 left-1/6 w-72 h-72 bg-slate-300 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-1/3 right-1/5 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
-                <div className="absolute top-2/3 left-1/3 w-48 h-48 bg-yellow-300 rounded-full blur-2xl"></div>
-                <div className="absolute bottom-1/6 left-1/12 w-32 h-32 bg-blue-400 rounded-full blur-xl"></div>
-            </div> */}
-
             
             <div className="relative overflow-hidden z-0 max-w-7xl mx-auto pt-24 sm:pt-32 md:pt-40 px-4 sm:px-6">
                 <div className="inline-block mb-8 sm:mb-10 md:mb-12">
@@ -24,7 +15,7 @@ export const AboutPage = () => {
                 </div>
                 
                 <div className="relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center mb-16 sm:mb-20 md:mb-32">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start mb-16 sm:mb-20 md:mb-32">
                         <div className="flex flex-col gap-6 sm:gap-8 justify-center items-center">
                             <div className="w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 bg-amber-50/50 shadow-lcd-glow rounded-full flex items-center justify-center text-amber-50 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
                                 TM
@@ -66,7 +57,7 @@ export const AboutPage = () => {
                             </div>
                         </div>
 
-                        <div className=" bg-gray-700/40 border border-gray-700/30 rounded-2xl p-4 space-y-4 sm:space-y-6 font-tech text-base sm:text-lg md:text-xl leading-relaxed text-amber-50/80">
+                        <div className="bg-gray-700/40 border border-gray-700/30 rounded-2xl p-4 space-y-4 sm:space-y-6 font-tech text-base sm:text-lg xl:text-xl leading-relaxed text-amber-50/80 lg:-mt-20">
                             <p>{bioData.bio.intro}</p>
                             {/* <div className="h-px my-4 bg-gradient-to-r from-transparent via-amber-50/30 to-transparent"></div> */}
                             <p>{bioData.bio.interests}</p>
