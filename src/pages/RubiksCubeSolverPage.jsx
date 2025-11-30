@@ -143,8 +143,9 @@ export const RubiksCubeSolverPage = () => {
 												<strong>Available moves</strong>: <code className="bg-gray-600 px-2 py-1 rounded">U, D, F, B, L, R</code>
 											</p>
 											<p className="mb-4">
-												In this stage, the solver can use any move that it wants to restrict the cube to G1. G1 is the set of cube states where all of the edges are oriented. Once in G1, the edges will remain oriented because the allowed move set excludes F and B turns, which are the only moves that can change edge orientation.
+												In this stage, the solver can use any move that it wants to restrict the cube to G1. G1 is the set of cube states where all of the edges are oriented. The following mask of the cube is used to highlight which edge piece must be oriented properly.
 											</p>
+											<img className="items-cetner" src="/images/rubiks/image.png" />
 										</div>
 									</div>
 
@@ -345,25 +346,7 @@ Total: 24 moves in 1.2s`}</code></pre>
 											This project deepened my understanding of both algorithmic problem-solving and practical optimization.
 											Thistlethwaite's algorithm elegantly demonstrates how dividing a complex problem into manageable stages
 											can make the seemingly impossible tractable.
-										</p>
-										<p className="mb-4">
-											<strong>Key Takeaways:</strong>
-										</p>
-										<ul className="list-disc list-inside mb-4 space-y-2">
-											<li>Group theory provides powerful abstractions for solving combinatorial puzzles</li>
-											<li>Pruning tables can reduce search times by orders of magnitude</li>
-											<li>IDDFS offers an excellent space-time tradeoff for depth-bounded search problems</li>
-											<li>Pattern databases and state-space reduction are critical for real-world constraint satisfaction</li>
-										</ul>
-										<p className="mb-4">
-											<strong>Future Improvements:</strong>
-										</p>
-										<ul className="list-disc list-inside mb-4 space-y-2">
-											<li>Implement Kociemba's two-phase algorithm for faster solves</li>
-											<li>Add pattern database compression techniques to reduce memory footprint</li>
-											<li>Optimize with C++ extensions for performance-critical sections</li>
-											<li>Build a web interface for interactive solving and visualization</li>
-										</ul>
+										</p>										
 									</div>
 								</div>
 							</div>

@@ -261,7 +261,9 @@ return Math.max(0, Math.min(100, Math.round(score)));
 											TailwindKOM demonstrates how combining multiples APIs can create a practical tool for cyclists looking to optimizing their rides. By analyizing real-time wind conditions and matching them against segment bearings, TailwindKOM helps riders identify the best opportunity to chase personal records or claim KOMs on Strava segmenets.   
 
 										</p>
-										<p>In the future, I would like to have a more intelligent algorithm to calculate wind scores that accounts for segments with bearing changes. I would also like to add forecasting so that you can plan your rides a few hours in advance.</p>
+										<p>
+											In the future, I would like to have a more intelligent algorithm to calculate wind scores that accounts for segments with bearing changes. I would also like to add forecasting so that you can plan your rides a few hours in advance. 
+										</p>
 									</div>
 								</div>
 							</div>
