@@ -17,7 +17,7 @@ export const HomePage = () => {
     const [imageHeight, setImageHeight] = useState(0);
 
     const messages = [
-        { line1: "HI, IM THOMAS", line2: "WELCOME HERE!" },
+        { line1: "HI, IM THOMAS", line2: "WELCOME!" },
         { line1: "I STUDY COMPUTER", line2: "ENGINEERING" },
         { line1: "SCROLL DOWN TO", line2: "SEE MORE >" }
     ];
@@ -58,9 +58,9 @@ export const HomePage = () => {
                 clearInterval(typeInterval);
                 setTimeout(() => {
                     setCurrentMessageIndex((prev) => (prev + 1) % messages.length);
-                }, 3000);
+                }, 1500);
             }
-        }, 150); // char write speed
+        }, 125); // char write speed
 
         return () => clearInterval(typeInterval);
     }, [currentMessageIndex]);

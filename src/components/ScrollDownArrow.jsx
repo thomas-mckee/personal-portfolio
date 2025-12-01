@@ -8,7 +8,7 @@ export const ScrollDownArrow = () => {
         // Show arrow after 3 seconds
         const timer = setTimeout(() => {
             setVisible(true);
-        }, 19000);
+        }, 13500);
 
         return () => clearTimeout(timer);
     }, []);
