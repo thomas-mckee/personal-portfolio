@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Prism from "prismjs";
+import "prismjs/components/prism-python";
 import "prismjs/themes/prism-okaidia.css";
 import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
@@ -21,6 +22,7 @@ export const RubiksCubeSolverPage = () => {
 			{ id: 'g3tog4', title: 'G3 → G4' }
 		]},
 		{ id: 'solvingalgorithm', title: 'Solving Algorithm', subsections: [
+			{ id: 'masking', title: 'Cube Masking' },
 			{ id: 'search', title: 'Search' },
 			{ id: 'pruningtables', title: 'Pruning Tables' }
 		]},
@@ -129,6 +131,19 @@ export const RubiksCubeSolverPage = () => {
 										<p className="mb-4">
 											Thistlethwaite's algorithm breaks solving a Rubik's cube up into distinct stages, each with a restriction on the moveset that you can use. By reducing the problem space at each stage, the algorithm guarantees a solution while keeping computation manageable. The algorithm begins at group G0, which is the set of all cube states, and end at group G4 which is the solved state. Each stage of the algorithm reduces the cube from one group to the next by applying the availbe moveset.
 										</p>
+										<div className="bg-blue-500/10 border-l-4 border-blue-400/40 px-4 py-3 mb-4 rounded-r-lg">
+											<p className="text-sm text-blue-200/80 italic">
+												<span className="font-semibold text-blue-300">NOTE:</span> More information on Thistlethwaite's Algorithm can be found {' '}
+													<a 
+														href="https://www.jaapsch.net/puzzles/thistle.htm" 
+														target="_blank"
+														rel="noopener noreferrer"
+														className="text-lcd-blue font-semibold"
+													>
+														here
+													</a>.
+											</p>
+										</div>
 										
 									</div>
 
@@ -143,9 +158,30 @@ export const RubiksCubeSolverPage = () => {
 												<strong>Available moves</strong>: <code className="bg-gray-600 px-2 py-1 rounded">U, D, F, B, L, R</code>
 											</p>
 											<p className="mb-4">
-												In this stage, the solver can use any move that it wants to restrict the cube to G1. G1 is the set of cube states where all of the edges are oriented. The following mask of the cube is used to highlight which edge piece must be oriented properly.
+												In this stage, the solver can use any move that it wants to restrict the cube to G1. G1 is the set of cube states where all of the edges are oriented. 
 											</p>
-											<img className="items-cetner" src="/images/rubiks/image.png" />
+											{/* Cube Images */}
+											<div className="flex justify-center my-6">
+												<div className="overflow-x-auto">
+													<div className="flex items-center gap-4 px-4">
+														<div className="flex flex-col items-center">
+															<div className="bg-gray-800 p-4 rounded-lg inline-block">
+																<img src="/images/rubiks/g0.png" />
+															</div>
+															<p className="text-md text-amber-50/70 mt-2 font-mono">G0</p>
+														</div>
+														<div className="bg-gray-800 px-4 py-2 rounded-lg">
+															<span className="text-2xl text-amber-50/70">→</span>
+														</div>
+														<div className="flex flex-col items-center">
+															<div className="bg-gray-800 p-4 rounded-lg inline-block">
+																<img src="/images/rubiks/g1.png" />
+															</div>
+															<p className="text-md text-amber-50/70 mt-2 font-mono">G1</p>
+														</div>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 
@@ -157,14 +193,31 @@ export const RubiksCubeSolverPage = () => {
 												<strong>Goal:</strong> Orient all corners and position middle layer edges
 											</p>
 											<p className="mb-4">
-												Available moves: <code className="bg-gray-600 px-2 py-1 rounded">U, D, F2, B2, L, R</code>
+												<strong>Available moves</strong>: <code className="bg-gray-600 px-2 py-1 rounded">U, D, F2, B2, L, R</code>
 											</p>
 											<p className="mb-4">
 												This stage ensures all corners are correctly oriented (can be solved without rotating them) and that the
-												four middle-layer edges (E-slice) are in their correct layer, though not necessarily in the right positions.
-												By restricting F, B, L, and R to only 180° turns, we maintain the edge orientation from G1 while further
-												constraining the cube state.
+												four middle-layer edges (E-slice) are in their correct layer, though not necessarily in the right positions. By position the E-slice edges in their correct layer, the U/D edges will also be intheir correct layer.
+												
 											</p>
+											{/* Cube Images */}
+											<div className="flex justify-center items-center gap-4 my-6">
+												<div className="flex flex-col items-center">
+													<div className="bg-gray-800 p-4 rounded-lg inline-block">
+														<img src="/images/rubiks/g1.png" />
+													</div>
+													<p className="text-md text-amber-50/70 mt-2 font-mono">G1</p>
+												</div>
+												<div className="bg-gray-800 px-4 py-2 rounded-lg">
+													<span className="text-2xl text-amber-50/70">→</span>
+												</div>
+												<div className="flex flex-col items-center">
+													<div className="bg-gray-800 p-4 rounded-lg inline-block">
+														<img src="/images/rubiks/g2.png" />
+													</div>
+													<p className="text-md text-amber-50/70 mt-2 font-mono">G2</p>
+												</div>
+											</div>
 										</div>
 									</div>
 
@@ -176,17 +229,29 @@ export const RubiksCubeSolverPage = () => {
 												<strong>Goal:</strong> Position edges and corners into their correct slices
 											</p>
 											<p className="mb-4">
-												Available moves: <code className="bg-gray-600 px-2 py-1 rounded">U2, D2, F2, B2, L2, R2</code>
+												<strong>Available moves</strong>: <code className="bg-gray-600 px-2 py-1 rounded">U, D, F2, B2, L2, R2</code>
 											</p>
 											<p className="mb-4">
-												Now restricted to only 180° turns, this stage ensures that all pieces are in their correct "slice"
-												(corners are in the top or bottom layer they belong to, edges are in their correct orbital position).
-												The cube may not be solved yet, but each piece is at most a 180° turn away from its solved position.
+												This is the most complex stage of the algorithm, and it will contributes to the largest reduction in cube states. Ultimately, this stage ensures that colours are either on their correct face or on the opposite face, thus making the cube solveable using only half turns. For more information on this step I would encourage you read the two resources I provided earlier.
 											</p>
-											<p className="mb-4">
-												This is the most complex stage computationally, as there are many symmetrically equivalent states
-												that need to be recognized and reduced.
-											</p>
+											{/* Cube Images */}
+											<div className="flex justify-center items-center gap-4 my-6">
+												<div className="flex flex-col items-center">
+													<div className="bg-gray-800 p-4 rounded-lg inline-block">
+														<img src="/images/rubiks/g2.png" />
+													</div>
+													<p className="text-md text-amber-50/70 mt-2 font-mono">G2</p>
+												</div>
+												<div className="bg-gray-800 px-4 py-2 rounded-lg">
+													<span className="text-2xl text-amber-50/70">→</span>
+												</div>
+												<div className="flex flex-col items-center">
+													<div className="bg-gray-800 p-4 rounded-lg inline-block">
+														<img src="/images/rubiks/g3.png" />
+													</div>
+													<p className="text-md text-amber-50/70 mt-2 font-mono">G3</p>
+												</div>
+											</div>
 										</div>
 									</div>
 
@@ -198,16 +263,32 @@ export const RubiksCubeSolverPage = () => {
 												<strong>Goal:</strong> Solve the cube completely
 											</p>
 											<p className="mb-4">
-												Available moves: <code className="bg-gray-600 px-2 py-1 rounded">U2, D2, F2, B2, L2, R2</code>
+												<strong>Available moves</strong>: <code className="bg-gray-600 px-2 py-1 rounded">U2, D2, F2, B2, L2, R2</code>
 											</p>
 											<p className="mb-4">
-												The final stage uses the same move set as G2 → G3, but now we're searching for the completely
-												solved state. Since all pieces are already in their correct slices from the previous stage,
-												this stage typically requires fewer moves (often 8-15 moves) to position everything perfectly.
+												Once the cube reaches G3, the remaining solve become much easier due the stong  constraints imposed on the cube's state by the earlier stages. This step requires no cube masking (discussed in the next section), since the computations are simple relative to the other state transitions.
 											</p>
 											<p className="mb-4">
-												Once this stage completes, the cube is fully solved! 
+												From a starting point buried somewhere among more than 43 quintillion possible cube states, we have constrained the cube until only one configuration remained. Finally, the cube is solved.
 											</p>
+											{/* Cube Images */}
+											<div className="flex justify-center items-center gap-4 my-6">
+												<div className="flex flex-col items-center">
+													<div className="bg-gray-800 p-4 rounded-lg inline-block">
+														<img src="/images/rubiks/g3.png" />
+													</div>
+													<p className="text-md text-amber-50/70 mt-2 font-mono">G3</p>
+												</div>
+												<div className="bg-gray-800 px-4 py-2 rounded-lg">
+													<span className="text-2xl text-amber-50/70">→</span>
+												</div>
+												<div className="flex flex-col items-center">
+													<div className="bg-gray-800 p-4 rounded-lg inline-block">
+														<img src="/images/rubiks/g4.png" />
+													</div>
+													<p className="text-md text-amber-50/70 mt-2 font-mono">G4</p>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -222,9 +303,65 @@ export const RubiksCubeSolverPage = () => {
 									<div className="prose prose-lg max-w-none">
 										<p className="mb-4">
 											At each stage of Thistlethwaite's algorithm, we need to search for a sequence of moves that
-											transitions the cube from one group to the next. Two key techniques make this search tractable:
-											Iterative Deepening Depth-First Search (IDDFS) and Pruning Tables.
+											transitions the cube from one group to the next. Three key techniques make this search possible:
+											Cube Masking, Iterative Deepening Depth-First Search (IDDFS), and Pruning Tables.
 										</p>
+									</div>
+
+									{/* Cube Masking */}
+									<div data-section="masking" id="masking" className="mt-8 scroll-mt-8">
+										<h3 className="text-2xl font-mono font-bold pb-4 text-amber-50">Cube Masking</h3>
+										<div className="prose prose-lg max-w-none">
+											<p className="mb-4">
+												The state of a cube is represented as a list of 54 characters in a facelet format. A solved cube is represented by the facelet:
+											</p>
+											<div className="overflow-x-auto my-4">
+											<div className="w-full flex md:justify-center">
+												<code className="whitespace-nowrap bg-gray-600 px-4 py-2 rounded">
+												'UUUUUUUUULLLLLLLLLFFFFFFFFFRRRRRRRRRBBBBBBBBBDDDDDDDDD'
+												</code>
+											</div>
+											</div>
+
+    										<p className="mb-4">
+												When traversing through the groups in Thistlethwaite's algorithm, we are not always concerned with every sticker on the cube. Instead, we care only about the stickers that correspond to the restriction we are trying to impose on the cube (i.e., position middle slice edges). To accomplish this, we "mask" the cube by replacing the irrelevant stickers with a placeholder and keeping the few stickers that define the subgroup constraints. Masking lets us collapse many physical cube states to the same masked state. In doing so, the size of the pruning tables is greatly reduced, as is the search time.
+											</p>
+
+											<p className="mb-4">
+												For example, this is the mask of a cube in group G1, which has its edges oriented:
+											</p>
+											<div className="overflow-x-auto my-4">
+											<div className="w-full flex md:justify-center">
+												<code className="whitespace-nowrap bg-gray-600 px-4 py-2 rounded">
+												'XoXoXoXoXXXXXXXXXXXXXoXoXXXXXXXXXXXXXXXoXoXXXXoXoXoXoX'
+												</code>
+											</div>
+											</div>
+											<p className="mb-4">
+												We only care about the stickers marked with 'o' on the cube, as they correspond to oriented edges, while the 'X' stickers can be anything. A cube in G0 is masked using the positions marked with 'o', and the goal is to find a set of moves that transitions the G0 cube mask to the G1 cube mask. Using the same scramble from the Thistlethwaite's Algorithm section above, this transition can be seen below:
+											</p>
+											{/* Cube Images */}
+											<div className="flex justify-center items-center gap-4 my-6">
+												<div className="flex flex-col items-center">
+													<div className="bg-gray-800 p-4 rounded-lg inline-block">
+														<img src="/images/rubiks/g0mask_unsolved.png" />
+													</div>
+													<p className="text-md text-amber-50/70 mt-2 font-mono">Masked G0 Cube</p>
+												</div>
+												<div className="bg-gray-800 px-4 py-2 rounded-lg">
+													<span className="text-2xl text-amber-50/70">→</span>
+												</div>
+												<div className="flex flex-col items-center">
+													<div className="bg-gray-800 p-4 rounded-lg inline-block">
+														<img src="/images/rubiks/g0mask_solved.png" />
+													</div>
+													<p className="text-md text-amber-50/70 mt-2 font-mono">Masked G1 Cube</p>
+												</div>
+											</div>
+											<p className="mb-4">
+												This masking process is repeated for G1 to G2 and G2 to G3 however, the masking becomes more complicated with edges and corners being indicated differently. Hopefully this demonstrates why masking a cube greatly reduces the number of cube states that we visit in our search while trying to reduce the cube to each group.
+											</p>
+										</div>
 									</div>
 
 									{/* Search */}
@@ -232,7 +369,7 @@ export const RubiksCubeSolverPage = () => {
 										<h3 className="text-2xl font-mono font-bold pb-4 text-amber-50">Search</h3>
 										<div className="prose prose-lg max-w-none">
 											<p className="mb-4">
-												<strong>Iterative Deepening Depth-First Search (IDDFS)</strong> combines the space efficiency of
+												IDDFS combines the space efficiency of
 												depth-first search with the optimality guarantees of breadth-first search. The algorithm repeatedly
 												performs depth-limited DFS with increasing depth limits (1, 2, 3, ...) until a solution is found.
 											</p>
@@ -241,8 +378,8 @@ export const RubiksCubeSolverPage = () => {
 												solution that reaches the next group. This ensures we find a reasonably short solution without
 												storing all intermediate states in memory.
 											</p>
-											<div className="bg-gray-800 rounded-lg p-4 mt-4">
-												<pre className="language-python line-numbers"><code>{`def solve_iidfs_pruning(solver, cube, depth_limit):
+											<pre className="!text-xs border border-gray-500/30 overflow-x-auto max-w-full !mb-4">
+												<code className="language-python line-numbers whitespace-pre break-all">{`def solve_iidfs_pruning(solver, cube, depth_limit):
     for depth in range(1, depth_limit + 1):
         solution = []
         result = solve_dfs_with_pruning(
@@ -250,8 +387,8 @@ export const RubiksCubeSolverPage = () => {
         )
         if result is not None:
             return result
-    return None`}</code></pre>
-											</div>
+    return None`}</code>
+											</pre>
 										</div>
 									</div>
 
@@ -260,41 +397,42 @@ export const RubiksCubeSolverPage = () => {
 										<h3 className="text-2xl font-mono font-bold pb-4 text-amber-50">Pruning Tables</h3>
 										<div className="prose prose-lg max-w-none">
 											<p className="mb-4">
-												Pruning tables dramatically accelerate the search by precomputing the minimum number of moves
-												needed to reach the goal state from various cube configurations. During the search, if the
+												Pruning tables grealtly accelerate the search by precomputing the minimum number of moves
+												needed to reach a goal state from various other cube configurations. During the search, if the
 												pruning table indicates that the current position requires more moves than we have remaining
 												in our depth limit, we can immediately backtrack without exploring that branch further.
 											</p>
 											<p className="mb-4">
-												For each stage, I generate a pruning table by working backwards from the solved state (or set of
-												equivalent solved states) using BFS, recording the minimum distance for millions of configurations.
-												The tables are generated once at startup and used throughout all subsequent solves.
+												For each stage in the algortihm, I generate a pruning table by working backwards from the solved state(s) using Breadth First Search, recording the minimum distance for millions of configurations. For example, the G1 masked cube is used as the starting state and moves in G0 are applied and entered as a state in the tree. The tables are generated once at startup and used throughout all subsequent solves.
 											</p>
-											<div className="bg-gray-800 rounded-lg p-4 mt-4">
-												<pre className="language-python line-numbers"><code>{`def solve_dfs_with_pruning(solver, cube, solution, depth_remaining):
-    if solver.is_solved(cube):
-        return " ".join(solution)
-    if depth_remaining == 0:
-        return None
+											<pre className="!text-xs border border-gray-500/30 overflow-x-auto max-w-full !mb-4">
+												<code className="language-python line-numbers whitespace-pre break-all">{`def gen_pruning_table(solved_states, depth, moveset):
+    pruning_table = {}
+    previous_frontier = solved_states[:]
 
-    # Pruning: check minimum moves needed
-    lower_bound = solver.pruning_table.get(
-        "".join(cube.state),
-        solver.pruning_depth + 1
-    )
-    if lower_bound > depth_remaining:
-        return None  # Prune this branch
+    for state in solved_states:
+        pruning_table[state] = 0
 
-    # Continue search...`}</code></pre>
-											</div>
-											<p className="mb-4 mt-4">
-												The pruning tables for this implementation store between 10,000 to several million states depending
-												on the stage, with depths ranging from 9-10 moves. This reduces solve time from minutes to under a second
-												for most scrambles.
-											</p>
+    for i in range(1, depth + 1):
+        frontier = []
+        for state in previous_frontier:
+            for move in moveset:
+                cube = Cube(state)
+                cube.rotate(move)
+                new_state = "".join(cube.state)
+                if new_state not in pruning_table:
+                    pruning_table[new_state] = i
+                    frontier.append(new_state)
+        previous_frontier = frontier
+    return pruning_table`}</code>
+											</pre>
 										</div>
 									</div>
 								</div>
+
+								<p className="mb-4">
+									The combination of Cube Masking, IDDFS, and Pruning Tables all contributes to solving a Rubik's Cube using Thistlethwaite's Algorithm. Cube Masking reduces the number of cube states by focusing on only relevant spieces at each stage, IDDFS ensures the solution we find is reasonably short, and Pruning Tables allow us to eliminate uproductive branches in our search. 
+								</p>
 
 								<div className="h-px my-8 bg-gradient-to-r from-transparent via-amber-50/30 to-transparent"></div>
 
@@ -305,18 +443,16 @@ export const RubiksCubeSolverPage = () => {
 									</h2>
 									<div className="prose prose-lg max-w-none">
 										<p className="mb-4">
-											The solver successfully solves scrambled Rubik's Cubes with strong performance:
+											I performed 100,000 solves resulting in:
 										</p>
 										<ul className="list-disc list-inside mb-4 space-y-2">
-											<li><strong>Average solve time:</strong> 0.5-2 seconds per cube</li>
-											<li><strong>Average move count:</strong> 35-45 moves (well under the 52-move theoretical maximum)</li>
-											<li><strong>Success rate:</strong> ~95-98% within depth limits</li>
-											<li><strong>Pruning table generation:</strong> ~2-5 seconds at startup</li>
+											<li><strong>Average solve time:</strong> 0.5-2 seconds</li>
+											<li><strong>Average move count:</strong> 35-45 moves </li>
+											<li><strong>Percent Solved:</strong> % within depth limits</li>
+											<li><strong>Pruning table generation:</strong>  seconds at startup</li>
 										</ul>
 										<p className="mb-4">
-											The implementation demonstrates the power of combining good algorithm design (Thistlethwaite's staged approach)
-											with practical optimization techniques (IDDFS + pruning tables). While not as fast as specialized solvers
-											like Kociemba's algorithm, it provides an excellent balance of simplicity, educational value, and performance.
+											
 										</p>
 										<p className="mb-4">
 											Sample solve output showing the four stages:
@@ -343,9 +479,7 @@ Total: 24 moves in 1.2s`}</code></pre>
 									</h2>
 									<div className="prose prose-lg max-w-none">
 										<p className="mb-4">
-											This project deepened my understanding of both algorithmic problem-solving and practical optimization.
-											Thistlethwaite's algorithm elegantly demonstrates how dividing a complex problem into manageable stages
-											can make the seemingly impossible tractable.
+											This project is just getting started, as I have plans to utilize this solver in a physical Rubik's Cube solving machine. I would like to take a picture of a scrambled cube and use OpenCV to process the cube's state. I would then run this state through my solver to generate a solution sequence. This moveset would be translated into instructions for six motors mounted on each face of the cube to quickly solve it. After all this work, perhaps I'll finally beat my 30 second personal record.
 										</p>										
 									</div>
 								</div>

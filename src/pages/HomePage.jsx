@@ -126,12 +126,10 @@ export const HomePage = () => {
                     alt="6502 breadboard"
                     style={{
                         position: "absolute",
-                        top: "50%",
-                        transform: "translateY(-50%)",
                         left: `${left}px`,
                         maxWidth: "none",
                         maxHeight: "none",
-                        height: "min(100dvh, 1000px)", 
+                        height: "min(100vh, 1000px)", 
                         width: "auto",
                         pointerEvents: "none",
                         userSelect: "none",
