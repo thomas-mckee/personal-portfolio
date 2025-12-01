@@ -71,7 +71,7 @@ export const RubiksCubeSolverPage = () => {
 							<div className="relative aspect-video rounded-2xl overflow-hidden mb-6 bg-gray-800 border-2 border-gray-500/50">
 								<iframe
 									src="https://www.youtube.com/embed/KjqldU64SO4?autoplay=1&mute=1&loop=1&playlist=KjqldU64SO4&controls=0&showinfo=0&rel=0&modestbranding=1"
-									title="Rubik' Cube Solver"
+									title="Rubik's Cube Solver"
 									className="w-full h-full"
 									frameBorder="0"
 									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -113,9 +113,7 @@ export const RubiksCubeSolverPage = () => {
 															target="_blank"
 															rel="noopener noreferrer"
 															className="text-lcd-blue font-semibold"
-														>article</a>, which guided me through the key concepts. 
-															
-														 which provided a great tutorial on creating your own solver. Many thanks to the author as it was incredibly helpful in implementing Thistlethwaite's solving algorithm. 
+														>article</a>, which guided me through the key concepts. Many thanks to the author for putting together such a great tutorial.
 										</p>
 									</div>
 								</div>
@@ -197,7 +195,7 @@ export const RubiksCubeSolverPage = () => {
 											</p>
 											<p className="mb-4">
 												This stage ensures all corners are correctly oriented (can be solved without rotating them) and that the
-												four middle-layer edges (E-slice) are in their correct layer, though not necessarily in the right positions. By position the E-slice edges in their correct layer, the U/D edges will also be intheir correct layer.
+												four middle-layer edges (E-slice) are in their correct layer, though not necessarily in the right positions. By position the E-slice edges in their correct layer, the U/D edges will also be in their correct layer.
 												
 											</p>
 											{/* Cube Images */}
@@ -431,7 +429,7 @@ export const RubiksCubeSolverPage = () => {
 								</div>
 
 								<p className="mb-4">
-									The combination of Cube Masking, IDDFS, and Pruning Tables all contributes to solving a Rubik's Cube using Thistlethwaite's Algorithm. Cube Masking reduces the number of cube states by focusing on only relevant spieces at each stage, IDDFS ensures the solution we find is reasonably short, and Pruning Tables allow us to eliminate uproductive branches in our search. 
+									The combination of Cube Masking, IDDFS, and Pruning Tables all contributes to solving a Rubik's Cube using Thistlethwaite's Algorithm. Cube Masking reduces the number of cube states by focusing on only relevant pieces at each stage, IDDFS ensures the solution we find is reasonably short, and Pruning Tables allow us to eliminate uproductive branches in our search. 
 								</p>
 
 								<div className="h-px my-8 bg-gradient-to-r from-transparent via-amber-50/30 to-transparent"></div>
