@@ -68,7 +68,7 @@ export const RubiksCubeSolverPage = () => {
 							</div>
 
 							{/* Video Container */}
-							<div className="relative aspect-video rounded-2xl overflow-hidden mb-6 bg-gray-800 border border-gray-700/30">
+							<div className="relative aspect-video rounded-2xl overflow-hidden mb-6 bg-gray-800 border-2 border-gray-500/50">
 								<iframe
 									src="https://www.youtube.com/embed/KjqldU64SO4?autoplay=1&mute=1&loop=1&playlist=KjqldU64SO4&controls=0&showinfo=0&rel=0&modestbranding=1"
 									title="Rubik' Cube Solver"
@@ -94,10 +94,10 @@ export const RubiksCubeSolverPage = () => {
 							</div>
 
 							{/* Project Sections */}
-							<div className="bg-gray-700/40 border border-gray-700/30 rounded-2xl py-8 sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-16 text-amber-50/80 leading-relaxed text-base sm:text-lg font-tech overflow-x-hidden">
+							<div className="bg-gray-700/40 border-2 border-gray-500/50 rounded-2xl py-8 sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-16 text-amber-50/80 leading-relaxed text-base sm:text-lg font-tech overflow-x-hidden">
 
 								{/* Motivation */}
-								<div data-section="motivation" id="motivation" className="mb-12 pt-6 scroll-mt-8">
+								<div data-section="motivation" id="motivation" className="mb-12 pt-6 scroll-mt-16">
 									<h2 className="text-3xl sm:text-4xl font-mono font-bold pb-6 text-amber-50">
 										Motivation
 									</h2>
@@ -123,7 +123,7 @@ export const RubiksCubeSolverPage = () => {
 								<div className="h-px my-8 bg-gradient-to-r from-transparent via-amber-50/30 to-transparent"></div>
 
 								{/* Thistlethwaite's Algorithm */}
-								<div data-section="thistlethwaite" id="thistlethwaite" className="mb-12 scroll-mt-8">
+								<div data-section="thistlethwaite" id="thistlethwaite" className="mb-12 scroll-mt-16">
 									<h2 className="text-3xl sm:text-4xl font-mono font-bold pb-6 text-amber-50">
 										Thistlethwaite's Algorithm
 									</h2>
@@ -148,7 +148,7 @@ export const RubiksCubeSolverPage = () => {
 									</div>
 
 									{/* G0 → G1 */}
-									<div data-section="g0tog1" id="g0tog1" className="mt-8 scroll-mt-8">
+									<div data-section="g0tog1" id="g0tog1" className="mt-8 scroll-mt-16">
 										<h3 className="text-2xl font-mono font-bold pb-4 text-amber-50">G0 → G1</h3>
 										<div className="prose prose-lg max-w-none">
 											<p className="mb-4">
@@ -186,7 +186,7 @@ export const RubiksCubeSolverPage = () => {
 									</div>
 
 									{/* G1 → G2 */}
-									<div data-section="g1tog2" id="g1tog2" className="mt-8 scroll-mt-8">
+									<div data-section="g1tog2" id="g1tog2" className="mt-8 scroll-mt-16">
 										<h3 className="text-2xl font-mono font-bold pb-4 text-amber-50">G1 → G2</h3>
 										<div className="prose prose-lg max-w-none">
 											<p className="mb-4">
@@ -222,7 +222,7 @@ export const RubiksCubeSolverPage = () => {
 									</div>
 
 									{/* G2 → G3 */}
-									<div data-section="g2tog3" id="g2tog3" className="mt-8 scroll-mt-8">
+									<div data-section="g2tog3" id="g2tog3" className="mt-8 scroll-mt-16">
 										<h3 className="text-2xl font-mono font-bold pb-4 text-amber-50">G2 → G3</h3>
 										<div className="prose prose-lg max-w-none">
 											<p className="mb-4">
@@ -256,7 +256,7 @@ export const RubiksCubeSolverPage = () => {
 									</div>
 
 									{/* G3 → G4 */}
-									<div data-section="g3tog4" id="g3tog4" className="mt-8 scroll-mt-8">
+									<div data-section="g3tog4" id="g3tog4" className="mt-8 scroll-mt-16">
 										<h3 className="text-2xl font-mono font-bold pb-4 text-amber-50">G3 → G4</h3>
 										<div className="prose prose-lg max-w-none">
 											<p className="mb-4">
@@ -266,7 +266,7 @@ export const RubiksCubeSolverPage = () => {
 												<strong>Available moves</strong>: <code className="bg-gray-600 px-2 py-1 rounded">U2, D2, F2, B2, L2, R2</code>
 											</p>
 											<p className="mb-4">
-												Once the cube reaches G3, the remaining solve become much easier due the stong  constraints imposed on the cube's state by the earlier stages. This step requires no cube masking (discussed in the next section), since the computations are simple relative to the other state transitions.
+												Once the cube reaches G3, the remaining solve become much easier due the strong constraints imposed on the cube's state by the earlier stages. This step requires no cube masking (discussed in the next section), since the computations are simple relative to the other state transitions.
 											</p>
 											<p className="mb-4">
 												From a starting point buried somewhere among more than 43 quintillion possible cube states, we have constrained the cube until only one configuration remained. Finally, the cube is solved.
@@ -296,7 +296,7 @@ export const RubiksCubeSolverPage = () => {
 								<div className="h-px my-8 bg-gradient-to-r from-transparent via-amber-50/30 to-transparent"></div>
 
 								{/* Solving Algorithm */}
-								<div data-section="solvingalgorithm" id="solvingalgorithm" className="mb-12 scroll-mt-8">
+								<div data-section="solvingalgorithm" id="solvingalgorithm" className="mb-12 scroll-mt-16">
 									<h2 className="text-3xl sm:text-4xl font-mono font-bold pb-6 text-amber-50">
 										Solving Algorithm
 									</h2>
@@ -309,7 +309,7 @@ export const RubiksCubeSolverPage = () => {
 									</div>
 
 									{/* Cube Masking */}
-									<div data-section="masking" id="masking" className="mt-8 scroll-mt-8">
+									<div data-section="masking" id="masking" className="mt-8 scroll-mt-16">
 										<h3 className="text-2xl font-mono font-bold pb-4 text-amber-50">Cube Masking</h3>
 										<div className="prose prose-lg max-w-none">
 											<p className="mb-4">
@@ -365,7 +365,7 @@ export const RubiksCubeSolverPage = () => {
 									</div>
 
 									{/* Search */}
-									<div data-section="search" id="search" className="mt-8 scroll-mt-8">
+									<div data-section="search" id="search" className="mt-8 scroll-mt-16">
 										<h3 className="text-2xl font-mono font-bold pb-4 text-amber-50">Search</h3>
 										<div className="prose prose-lg max-w-none">
 											<p className="mb-4">
@@ -393,17 +393,17 @@ export const RubiksCubeSolverPage = () => {
 									</div>
 
 									{/* Pruning Tables */}
-									<div data-section="pruningtables" id="pruningtables" className="mt-8 scroll-mt-8">
+									<div data-section="pruningtables" id="pruningtables" className="mt-8 scroll-mt-16">
 										<h3 className="text-2xl font-mono font-bold pb-4 text-amber-50">Pruning Tables</h3>
 										<div className="prose prose-lg max-w-none">
 											<p className="mb-4">
-												Pruning tables grealtly accelerate the search by precomputing the minimum number of moves
+												Pruning tables greatly accelerate the search by precomputing the minimum number of moves
 												needed to reach a goal state from various other cube configurations. During the search, if the
 												pruning table indicates that the current position requires more moves than we have remaining
 												in our depth limit, we can immediately backtrack without exploring that branch further.
 											</p>
 											<p className="mb-4">
-												For each stage in the algortihm, I generate a pruning table by working backwards from the solved state(s) using Breadth First Search, recording the minimum distance for millions of configurations. For example, the G1 masked cube is used as the starting state and moves in G0 are applied and entered as a state in the tree. The tables are generated once at startup and used throughout all subsequent solves.
+												For each stage in the algorithm, I generate a pruning table by working backwards from the solved state(s) using Breadth First Search, recording the minimum distance for millions of configurations. For example, the G1 masked cube is used as the starting state and moves in G0 are applied and entered as a state in the tree. The tables are generated once at startup and used throughout all subsequent solves.
 											</p>
 											<pre className="!text-xs border border-gray-500/30 overflow-x-auto max-w-full !mb-4">
 												<code className="language-python line-numbers whitespace-pre break-all">{`def gen_pruning_table(solved_states, depth, moveset):
@@ -437,43 +437,83 @@ export const RubiksCubeSolverPage = () => {
 								<div className="h-px my-8 bg-gradient-to-r from-transparent via-amber-50/30 to-transparent"></div>
 
 								{/* Results */}
-								<div data-section="results" id="results" className="mb-12 scroll-mt-8">
+								<div data-section="results" id="results" className="mb-12 scroll-mt-16">
 									<h2 className="text-3xl sm:text-4xl font-mono font-bold pb-6 text-amber-50">
 										Results
 									</h2>
 									<div className="prose prose-lg max-w-none">
 										<p className="mb-4">
-											I performed 100,000 solves resulting in:
+											I tested my solving algorithm using 100,000 random scrambles. The G0 → G1 pruning table was generated with a depth of 12, and the other three pruning tables used a depth of 11. The depth of the search from G0 → G1, G1 → G2, G2 → G3, G3 → G4 was 16, 18, 21, and 19 respectively. The results from these solves were:
 										</p>
-										<ul className="list-disc list-inside mb-4 space-y-2">
-											<li><strong>Average solve time:</strong> 0.5-2 seconds</li>
-											<li><strong>Average move count:</strong> 35-45 moves </li>
-											<li><strong>Percent Solved:</strong> % within depth limits</li>
-											<li><strong>Pruning table generation:</strong>  seconds at startup</li>
-										</ul>
-										<p className="mb-4">
-											
-										</p>
-										<p className="mb-4">
-											Sample solve output showing the four stages:
-										</p>
-										<div className="bg-gray-800 rounded-lg p-4 mt-4">
-											<pre className="text-sm"><code>{`Scramble: R U F2 B D' L2 R' F2 U2 B2 L2 R2
 
-G0 → G1: F2 U' R2 D F2 U2 L2 [7 moves]
-G1 → G2: R2 D2 L2 U2 F2 [5 moves]
-G2 → G3: U2 R2 D2 F2 L2 D2 [6 moves]
-G3 → G4: U2 F2 R2 B2 L2 D2 [6 moves]
+										{/* Metric Cards */}
+										<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+											<div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-400/30 rounded-xl p-6">
+												<div className="text-blue-300/70 text-md font-mono mb-2">Average Solve Time</div>
+												<div className="text-4xl font-bold text-lcd-blue mb-1">54.5 ms</div>
+											</div>
 
-Total: 24 moves in 1.2s`}</code></pre>
+											<div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-400/30 rounded-xl p-6">
+												<div className="text-blue-300/70 text-md font-mono mb-2">Average Move Count</div>
+												<div className="text-4xl font-bold text-lcd-blue mb-1">42 moves</div>
+											</div>
+
+											<div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-400/30 rounded-xl p-6">
+												<div className="text-blue-300/70 text-md font-mono mb-2">Success Rate</div>
+												<div className="text-4xl font-bold text-lcd-blue mb-1">100%</div>
+											</div>
+
+											<div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-400/30 rounded-xl p-6">
+												<div className="text-blue-300/70 text-md font-mono mb-2">Table Generation</div>
+												<div className="text-4xl font-bold text-lcd-blue mb-1">37.11s</div>
+											</div>
+										</div>
+
+										<p className="mb-4">
+											The depth of both the pruning tables and searches were tuned until a 100% success rate was achieved. Of course you could spend an hour generating extremely wide and deep pruning tables to reduce solve time further, however I wanted to keep the table generation time fast. For my goal of building a physical solving machine, the 54ms average solve time is more than sufficient. The motors speed and synchronization will become the bottleneck of the solving speed.
+										</p>
+
+										<p className="mb-4">
+											The histogram below demonstrates consistent performance, with the slowest solves only marginally worse than average. Currently, Kociemba's Two-Phase-Algorithm is the best Rubik's Cube solving algorithm and it can solve the cube in under 20 moves (God's Number). However, my implementation of Thistlethwaite's Algorithm is relatively much easier to implement and I am satisfied with the results.
+										</p>
+
+										<div className="flex flex-col items-center mb-4">
+											<div className="bg-gray-800 p-4 rounded-lg inline-block">
+												<img src="/images/rubiks/n=100000histogram.png" className="rounded-lg" />
+											</div>
+											<p className="text-md text-amber-50/70 mt-2 font-mono">Histogram of Solve Time and Move Counts | n = 100000</p>
+										</div>
+										
+
+										<p className="mb-4">
+											A 25 move scramble solve showing the four stages:
+										</p>
+										<div className="bg-gray-800 rounded-lg p-4 my-4">
+											<pre className="text-sm"><code>{`Scramble Cube
+L B B L B L F F R U D D B F L F R U B F B B B U R
+
+Reduce to G1:
+F U F L R L F B
+
+Reduce to G2:
+U F2 D F2 R F2 R U D F2 B2 F2 R
+
+Reduce to G3:
+R2 F2 B2 U D R2 U L2 R2 B2 U
+
+Reduce to G4 (solved):
+F2 D2 F2 U2 L2 B2 L2 F2 D2 F2 D2
+
+Solver found solution:  F ... D2 [43]
+Total Time: 0.04s`}</code></pre>
 										</div>
 									</div>
 								</div>
-
+							
 								<div className="h-px my-8 bg-gradient-to-r from-transparent via-amber-50/30 to-transparent"></div>
 
 								{/* Conclusion */}
-								<div data-section="conclusion" id="conclusion" className="scroll-mt-8">
+								<div data-section="conclusion" id="conclusion" className="scroll-mt-16">
 									<h2 className="text-3xl sm:text-4xl font-mono font-bold pb-6 text-amber-50">
 										Conclusion
 									</h2>

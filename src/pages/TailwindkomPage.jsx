@@ -64,7 +64,7 @@ export const TailwindKOMPage = () => {
 							</div>
 
 							{/* Video Container */}
-							<div className="relative aspect-video rounded-2xl overflow-hidden mb-4 bg-gray-800 border border-gray-700/30">
+							<div className="relative aspect-video rounded-2xl overflow-hidden mb-4 bg-gray-800 border-2 border-gray-500/50">
 								<iframe
 									src="https://www.youtube.com/embed/_FtWEi3yTPI?autoplay=1&mute=1&loop=1&playlist=_FtWEi3yTPI&controls=0&showinfo=0&rel=0&modestbranding=1"
 									title="TailwindKOM"
@@ -98,8 +98,8 @@ export const TailwindKOMPage = () => {
 							</div>
 
 							{/* Project Sections */}
-							<div className="bg-gray-700/40 backdrop-blur-sm border border-gray-700/30 rounded-2xl py-8 sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-16 text-amber-50/80 leading-relaxed text-base sm:text-lg font-tech overflow-x-hidden">
-								<div data-section="motivation" id="motivation" className="mb-12 pt-6 scroll-mt-8">
+							<div className="bg-gray-700/40 backdrop-blur-sm border-2 border-gray-500/50 rounded-2xl py-8 sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-16 text-amber-50/80 leading-relaxed text-base sm:text-lg font-tech overflow-x-hidden">
+								<div data-section="motivation" id="motivation" className="mb-12 pt-6 scroll-mt-16">
 									<h2 className="text-3xl sm:text-4xl font-mono font-bold pb-6 text-amber-50">
 										Motivation
 									</h2>
@@ -114,19 +114,19 @@ export const TailwindKOMPage = () => {
 											<span className="font-bold text-yellow-200/90">Queen of the Mountain (QOM)</span> is used)
 										</p>
 										<p>
-											Of course, a tailwind alone doesn't guarantee the fastest time. A combination of wind speed and direction is necessary to create favourable conditions for a segment. This becomes apparent when looking at the leaderboards for a segment, as majority of the fastest times were achieved with these conditions.
+											Of course, a tailwind alone doesn't guarantee the fastest time. A combination of wind speed and direction is necessary to create favourable conditions for a segment. This becomes apparent when looking at the leaderboards for a segment, as the majority of the fastest times were achieved with these conditions.
 										</p>
 									</div>
 								</div>
 
 								<div className="h-px my-8 bg-gradient-to-r from-transparent via-gray-300/30 to-transparent"></div>
 
-								<div data-section="windscore" id="windscore" className="mb-12 scroll-mt-8">
+								<div data-section="windscore" id="windscore" className="mb-12 scroll-mt-16">
 									<h2 className="text-3xl sm:text-4xl font-bold text-white">
 										Wind Score
 									</h2>
 									<div className="prose prose-lg max-w-none">
-										<div data-section="calculations" id="calculations" className="mt-8 scroll-mt-8">
+										<div data-section="calculations" id="calculations" className="mt-8 scroll-mt-16">
 											<h3 className="text-2xl font-bold pb-2 text-white">Calculations</h3>
 											<p className="mb-4">
 												Strava segments returned through Strava’s API include the latitude and longitude of the start and end points. These coordinates are currently used to calculate the bearing of each segment. However, this approach is inaccurate for segments that do not follow a straight path. In the future, I plan to improve this by using the segment’s polyline encoding, which captures the full geometry of the route, to calculate a more accurate wind score for segments with curves and turns.
@@ -174,7 +174,7 @@ export const TailwindKOMPage = () => {
 											</pre>
 										</div>
 										
-										<div data-section="scoring" id="scoring" className="mt-8 scroll-mt-8">
+										<div data-section="scoring" id="scoring" className="mt-8 scroll-mt-16">
 											<h3 className="text-2xl font-bold pb-2 text-white">Scoring</h3>
 											<p>
 												The power of the wind is scaled using an exponential function to ensure that strong winds are scored much higher. Wind scores start at a base score based on alignment factor and increase with how fast and aligned the wind is.
@@ -208,13 +208,13 @@ return Math.max(0, Math.min(100, Math.round(score)));
 
 								<div className="h-px my-8 bg-gradient-to-r from-transparent via-gray-300/30 to-transparent"></div>
 
-								<div data-section="data" id="data" className="mb-12 scroll-mt-8">
+								<div data-section="data" id="data" className="mb-12 scroll-mt-16">
 									<h2 className="text-3xl sm:text-4xl font-bold text-white">
 										Data
 									</h2>
 									<div className="prose prose-lg max-w-none">
 
-										<div data-section="stravaapi" id="stravaapi" className="mt-8 scroll-mt-8">
+										<div data-section="stravaapi" id="stravaapi" className="mt-8 scroll-mt-16">
 											<h3 className="text-2xl font-bold pb-6 text-white">Strava API</h3>
 											<p className="mb-4">
 												The Strava API provides access to a user's starred segments using OAuth 2.0 authentication. TailwindKOM prompts the user to connect their Strava account, and the application requests read permissions for their profile and activities. Strava's authentication flow exchanges an authorization code for an access token, which is stored and used for future API calls. The authentication system implements automatic token refreshing so that when an access token expires, the refresh token is used to obtain a new access token without requiring the user to log in again. 																			 
@@ -225,7 +225,7 @@ return Math.max(0, Math.min(100, Math.round(score)));
 
 										</div>
 
-										<div data-section="openweathermapapi" id="openweathermapapi" className="mt-8 scroll-mt-8">
+										<div data-section="openweathermapapi" id="openweathermapapi" className="mt-8 scroll-mt-16">
 											<h3 className="text-2xl font-mono font-bold pb-6 text-amber-50">OpenWeatherMap API</h3>
 											<p>
 												The OpenWeatherMap API provides real-time weather data for each segment's location. Using the start coordinates from each Strava segment, the application makes requests to the <span className="font-bold text-lcd-blue">`/weather`</span> endpoint to retrieve current wind conditions, including wind speed (in meters per second) and wind direction (in degrees). Additionally, the browsers geolocation is used to fetch weather conditions for the user's current location. This information is displayed at the top of the page to help users understand their current conditions at a glance.
@@ -236,20 +236,20 @@ return Math.max(0, Math.min(100, Math.round(score)));
 
 								<div className="h-px my-8 bg-gradient-to-r from-transparent via-gray-300/30 to-transparent"></div>
 
-								<div data-section="frontend" id="frontend" className="mb-12 scroll-mt-8">
+								<div data-section="frontend" id="frontend" className="mb-12 scroll-mt-16">
 									<h2 className="text-3xl sm:text-4xl font-mono font-bold pb-6 text-amber-50">
 										Frontend
 									</h2>
 									<div className="prose prose-lg max-w-none">
 										<p>
-											The frotend of TailwindKOM is built with React and styled using TailwindCSS <span className="italic">(I obviously had to use Tailwind!)</span>. The application uses a component-based architechture which enables the use of segment cards, weather displays, and a section for inspirational quotes that I like. The user is provided visual feedback on the condition of a segment given the current weather conditions. Wind score is colour-coded ranging from <span className="text-red-500">red</span> (poor conditions) to <span className="text-green-500">green</span> (excelent conditions). The segments are sorted and displayed with the best wind scores first and the worst wind scores last.
+											The frontend of TailwindKOM is built with React and styled using TailwindCSS <span className="italic">(I obviously had to use Tailwind!)</span>. The application uses a component-based architecture which enables the use of segment cards, weather displays, and a section for inspirational quotes that I like. The user is provided visual feedback on the condition of a segment given the current weather conditions. Wind score is colour-coded ranging from <span className="text-red-500">red</span> (poor conditions) to <span className="text-green-500">green</span> (excellent conditions). The segments are sorted and displayed with the best wind scores first and the worst wind scores last.
 										</p>
 									</div>
 								</div>
 
 								<div className="h-px my-8 bg-gradient-to-r from-transparent via-gray-300/30 to-transparent"></div>
 
-								<div data-section="conclusion" id="conclusion" className="scroll-mt-8">
+								<div data-section="conclusion" id="conclusion" className="scroll-mt-16">
 									<h2 className="text-3xl sm:text-4xl font-mono font-bold pb-6 text-amber-50">
 										Conclusion
 									</h2>
@@ -258,7 +258,7 @@ return Math.max(0, Math.min(100, Math.round(score)));
 											TailwindKOM is a project I built using the web development skills I learned over the Summer of 2025. While working on it, I got better at React, learned how to use TailwindCSS, and figured out how to work with different APIs to pull in useful data. It all started as an idea to solve a problem I kept running into on my bike rides so I turned that idea into a real tool. Now I use it on every windy ride to know exactly where big efforts are worth it.
 										</p>
 										<p className="mb-4">
-											TailwindKOM demonstrates how combining multiples APIs can create a practical tool for cyclists looking to optimizing their rides. By analyizing real-time wind conditions and matching them against segment bearings, TailwindKOM helps riders identify the best opportunity to chase personal records or claim KOMs on Strava segmenets.   
+											TailwindKOM demonstrates how combining multiple APIs can create a practical tool for cyclists looking to optimize their rides. By analyzing real-time wind conditions and matching them against segment bearings, TailwindKOM helps riders identify the best opportunity to chase personal records or claim KOMs on Strava segments.
 
 										</p>
 										<p>

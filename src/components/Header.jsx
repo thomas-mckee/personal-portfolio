@@ -44,7 +44,7 @@ export const Header = () => {
     };
 
     return (
-            <header className={`fixed top-3 sm:top-5 left-1/2 transform -translate-x-1/2 z-50 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+            <header className={`fixed top-3 left-1/2 transform -translate-x-1/2 z-50 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         <div className="relative w-[300px] h-[70px] sm:w-[300px] sm:h-[100px]">
             <img
                 src="/images/headerIC1.svg"

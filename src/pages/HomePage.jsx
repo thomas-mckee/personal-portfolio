@@ -14,6 +14,7 @@ export const HomePage = () => {
     const [displayText, setDisplayText] = useState({ line1: '', line2: '' });
     const [showCursor, setShowCursor] = useState(true);
     const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+    const [imageHeight, setImageHeight] = useState(0);
 
     const messages = [
         { line1: "HI, IM THOMAS", line2: "WELCOME HERE!" },
@@ -80,7 +81,8 @@ export const HomePage = () => {
             const vw = window.innerWidth;
             const vh = window.innerHeight;
 
-            const displayHeight = Math.min(vh, 1000);
+            const displayHeight = vh;
+            setImageHeight(displayHeight);
             const displayWidth = (imgWidth / imgHeight) * displayHeight;
             const scale = displayHeight / imgHeight;
 
@@ -127,9 +129,10 @@ export const HomePage = () => {
                     style={{
                         position: "absolute",
                         left: `${left}px`,
+                        top: `${lcdRect.top - (1795 * (imageHeight / 3714))}px`,
                         maxWidth: "none",
                         maxHeight: "none",
-                        height: "min(100vh, 1000px)", 
+                        height: `${imageHeight}px`,
                         width: "auto",
                         pointerEvents: "none",
                         userSelect: "none",
