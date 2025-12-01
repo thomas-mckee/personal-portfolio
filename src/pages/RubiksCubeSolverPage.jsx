@@ -127,7 +127,7 @@ export const RubiksCubeSolverPage = () => {
 									</h2>
 									<div className="prose prose-lg max-w-none">
 										<p className="mb-4">
-											Thistlethwaite's algorithm breaks solving a Rubik's cube up into distinct stages, each with a restriction on the moveset that you can use. By reducing the problem space at each stage, the algorithm guarantees a solution while keeping computation manageable. The algorithm begins at group G0, which is the set of all cube states, and end at group G4 which is the solved state. Each stage of the algorithm reduces the cube from one group to the next by applying the availbe moveset.
+											Thistlethwaite's algorithm breaks solving a Rubik's cube up into distinct stages, each with a restriction on the moveset that you can use. By reducing the problem space at each stage, the algorithm guarantees a solution while keeping computation manageable. The algorithm begins at group G0, which is the set of all cube states, and ends at group G4 which is the solved state. Each stage of the algorithm reduces the cube from one group to the next by applying the availbe moveset.
 										</p>
 										<div className="bg-blue-500/10 border-l-4 border-blue-400/40 px-4 py-3 mb-4 rounded-r-lg">
 											<p className="text-sm text-blue-200/80 italic">
@@ -195,7 +195,7 @@ export const RubiksCubeSolverPage = () => {
 											</p>
 											<p className="mb-4">
 												This stage ensures all corners are correctly oriented (can be solved without rotating them) and that the
-												four middle-layer edges (E-slice) are in their correct layer, though not necessarily in the right positions. By position the E-slice edges in their correct layer, the U/D edges will also be in their correct layer.
+												four middle-layer edges (E-slice) are in their correct layer, though not necessarily in the right positions. By positioning the E-slice edges in their correct layer, the U/D edges will also be in their correct layer.
 												
 											</p>
 											{/* Cube Images */}
@@ -357,7 +357,7 @@ export const RubiksCubeSolverPage = () => {
 												</div>
 											</div>
 											<p className="mb-4">
-												This masking process is repeated for G1 to G2 and G2 to G3 however, the masking becomes more complicated with edges and corners being indicated differently. Hopefully this demonstrates why masking a cube greatly reduces the number of cube states that we visit in our search while trying to reduce the cube to each group.
+												This masking process is repeated for G1 to G2 and G2 to G3 however, the masking becomes more complicated with edges and corners being labeled differently. Hopefully this demonstrates why masking a cube greatly reduces the number of cube states that we visit in our search while traversing through the groups.
 											</p>
 										</div>
 									</div>

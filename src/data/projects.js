@@ -13,7 +13,7 @@ export const projects = [
     {
         id: "rubikscubesolver",
         title: "Rubik's Cube Solver",
-        description: "A Rubik's cube solver implemented in Python using Thistlethwaite's four-phase algorithm. Upcoming work involves integrating cameras and motors for automated cube solving.",
+        description: "A Rubik's Cube solver implemented in Python using Thistlethwaite's four-phase algorithm. Upcoming work involves integrating cameras and motors for automated cube solving.",
         video: "/videos/rubiks_cube_solver_demo.mp4",
         youtubeId: "KjqldU64SO4",
         tags: ["Python", "Embedded"],
