@@ -242,7 +242,7 @@ return Math.max(0, Math.min(100, Math.round(score)));
 									</h2>
 									<div className="prose prose-lg max-w-none">
 										<p>
-											The frontend of TailwindKOM is built with React and styled using TailwindCSS <span className="italic">(I obviously had to use Tailwind!)</span>. The application uses a component-based architecture which enables the use of segment cards, weather displays, and a section for inspirational quotes that I like. The user is provided visual feedback on the condition of a segment given the current weather conditions. Wind score is colour-coded ranging from <span className="text-red-500">red</span> (poor conditions) to <span className="text-green-500">green</span> (excellent conditions). The segments are sorted and displayed with the best wind scores first and the worst wind scores last.
+											The frontend of TailwindKOM is built with React and styled using Tailwind CSS <span className="italic">(I obviously had to use Tailwind!)</span>. The application uses a component-based architecture which enables the use of segment cards, weather displays, and a section for inspirational quotes that I like. The user is provided visual feedback on the condition of a segment given the current weather conditions. Wind score is colour-coded ranging from <span className="text-red-500">red</span> (poor conditions) to <span className="text-green-500">green</span> (excellent conditions). The segments are sorted and displayed with the best wind scores first and the worst wind scores last.
 										</p>
 									</div>
 								</div>
