@@ -168,7 +168,7 @@ export const RubiksCubeSolverPage = () => {
 															</div>
 															<p className="text-md text-amber-50/70 mt-2 font-mono">G0</p>
 														</div>
-														<div className="bg-gray-800 px-4 py-2 rounded-lg">
+														<div className="bg-gray-800 px-4 py-2 mb-10 rounded-lg">
 															<span className="text-2xl text-amber-50/70">→</span>
 														</div>
 														<div className="flex flex-col items-center">
@@ -206,7 +206,7 @@ export const RubiksCubeSolverPage = () => {
 													</div>
 													<p className="text-md text-amber-50/70 mt-2 font-mono">G1</p>
 												</div>
-												<div className="bg-gray-800 px-4 py-2 rounded-lg">
+												<div className="bg-gray-800 px-4 py-2 mb-10 rounded-lg">
 													<span className="text-2xl text-amber-50/70">→</span>
 												</div>
 												<div className="flex flex-col items-center">
@@ -240,7 +240,7 @@ export const RubiksCubeSolverPage = () => {
 													</div>
 													<p className="text-md text-amber-50/70 mt-2 font-mono">G2</p>
 												</div>
-												<div className="bg-gray-800 px-4 py-2 rounded-lg">
+												<div className="bg-gray-800 px-4 py-2 mb-10 rounded-lg">
 													<span className="text-2xl text-amber-50/70">→</span>
 												</div>
 												<div className="flex flex-col items-center">
@@ -277,7 +277,7 @@ export const RubiksCubeSolverPage = () => {
 													</div>
 													<p className="text-md text-amber-50/70 mt-2 font-mono">G3</p>
 												</div>
-												<div className="bg-gray-800 px-4 py-2 rounded-lg">
+												<div className="bg-gray-800 px-4 py-2 mb-10 rounded-lg">
 													<span className="text-2xl text-amber-50/70">→</span>
 												</div>
 												<div className="flex flex-col items-center">
@@ -346,7 +346,7 @@ export const RubiksCubeSolverPage = () => {
 													</div>
 													<p className="text-md text-amber-50/70 mt-2 font-mono">Masked G0 Cube</p>
 												</div>
-												<div className="bg-gray-800 px-4 py-2 rounded-lg">
+												<div className="bg-gray-800 px-4 py-2 mb-10 rounded-lg">
 													<span className="text-2xl text-amber-50/70">→</span>
 												</div>
 												<div className="flex flex-col items-center">
