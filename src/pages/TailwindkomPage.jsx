@@ -110,8 +110,8 @@ export const TailwindKOMPage = () => {
 										</p>
 										<p className="mb-4">
 											A segment on Strava is a user-created portion of roads or trails where users can compete for the fastest time to complete the segment, and in doing so claim to be the{' '}
-											<span className="font-bold text-yellow-200/90">King of the Mountain (KOM)</span> for that given segment. (For female cyclists,{' '}
-											<span className="font-bold text-yellow-200/90">Queen of the Mountain (QOM)</span> is used)
+											<span className="font-bold text-yellow-200/90">King/Queen of the Mountain (KOM/QOM)</span> for that given segment. 
+											
 										</p>
 										<p>
 											Of course, a tailwind alone doesn't guarantee the fastest time. A combination of wind speed and direction is necessary to create favourable conditions for a segment. This becomes apparent when looking at the leaderboards for a segment, as the majority of the fastest times were achieved with these conditions.
