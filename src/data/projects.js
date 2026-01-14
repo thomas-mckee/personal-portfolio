@@ -21,22 +21,6 @@ export const projects = [
         hasPage: true,
     },
     {
-        id: "cyclingcomputer",
-        title: "GPS Bike Computer",
-        description: "Coming soon...",
-        img: "/nodejs.png",
-        tags: ["Embedded", "FreeRTOS"],
-        hasPage: false,
-    },
-    {
-        id: "8bitadder",
-        title: "5-bit Transistor Adder",
-        description: "Coming soon...",
-        img: "/nodejs.png",
-        tags: ["Hardware", "Soldering"],
-        hasPage: false,
-    },
-    {
         id: "2048",
         title: "2048 Clone",
         description: "A clone of the popular game 2048.",
@@ -53,5 +37,21 @@ export const projects = [
         video: "/videos/mnist_digit_model_demo.mp4", 
         tags: ["Python", "Neural Network", "Flask"],
         github: "https://github.com/thomas-mckee/MNISTDigitModel",
-    }
+    },
+        {
+        id: "cyclingcomputer",
+        title: "GPS Bike Computer",
+        description: "ESP32-based cycling computer with GPS, BLE heart-rate monitoring, and a display for real-time ride data (coming soon).",
+        img: "/cyclingcomputer.jpg",
+        tags: ["Embedded", "ESP32", "FreeRTOS"],
+        hasPage: false,
+    },
+    {
+        id: "8bitadder",
+        title: "8-bit Transistor Adder",
+        description: "An 8-bit full adder implemented at the transistor level and soldered on perfboards (coming soon).",
+        img: "/8bitadder.jpg",
+        tags: ["Hardware", "Soldering"],
+        hasPage: false,
+    },
 ];

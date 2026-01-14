@@ -23,15 +23,22 @@ export const ProjectCard = ({ project }) => {
                     <img
                         src={`/images/${project.img}`}
                         alt={`${project.title}`}
-                        className="w-full h-full"
+                        className="w-full h-full blur-sm"
                     />
                 )}
 
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="text-amber-50 text-xl font-mono font-semibold">
-                        View Project
-                    </span>
+                    {project.video ? (
+                        <span className="text-amber-50 text-xl font-mono font-semibold">
+                            View Project
+                        </span>
+                        ) : (
+                            <span className="text-amber-50 text-xl font-mono font-semibold">
+                            Coming Soon
+                        </span>
+                        )}
+                    
                 </div>
             </div>
 
@@ -42,14 +49,6 @@ export const ProjectCard = ({ project }) => {
                 
                 {/* Continue Reading + Tags Row */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
-                    <button 
-                        onClick={handleViewProject}
-                        className="text-amber-50 hover:text-lcd-blue hover:scale-105 font-mono font-semibold transition-all duration-200 relative group cursor-pointer"
-                    >
-                        Continue Reading →
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-lcd-blue shadow-lcd-glow transition-all duration-200 group-hover:w-full"></span>
-                    </button>
-                    
                     <div className="flex flex-wrap gap-1.5 sm:gap-2">
                         {project.tags.map((tag, index) => (
                             <span 
@@ -60,6 +59,18 @@ export const ProjectCard = ({ project }) => {
                             </span>
                         ))}
                     </div>
+                    {project.hasPage && (
+                        <button 
+                            onClick={handleViewProject}
+                            className="text-amber-50 hover:text-lcd-blue hover:scale-105 font-mono font-semibold transition-all duration-200 relative group cursor-pointer"
+                        >
+                            Continue Reading →
+                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-lcd-blue shadow-lcd-glow transition-all duration-200 group-hover:w-full"></span>
+                        </button>
+                    )}
+
+                    
+                    
                 </div>
             </div>
         </div>
