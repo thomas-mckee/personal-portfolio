@@ -21,6 +21,22 @@ export const projects = [
         hasPage: true,
     },
     {
+        id: "cyclingcomputer",
+        title: "GPS Bike Computer",
+        description: "Coming soon...",
+        img: "/nodejs.png",
+        tags: ["Embedded", "FreeRTOS"],
+        hasPage: false,
+    },
+    {
+        id: "8bitadder",
+        title: "5-bit Transistor Adder",
+        description: "Coming soon...",
+        img: "/nodejs.png",
+        tags: ["Hardware", "Soldering"],
+        hasPage: false,
+    },
+    {
         id: "2048",
         title: "2048 Clone",
         description: "A clone of the popular game 2048.",

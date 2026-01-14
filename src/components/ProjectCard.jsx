@@ -20,15 +20,10 @@ export const ProjectCard = ({ project }) => {
                         allowFullScreen
                     />
                 ) : (
-                    <video
-                        src={project.video}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        preload="metadata"
-                        className="w-full h-full object-contain"
-                        style={{ imageRendering: 'crisp-edges' }}
+                    <img
+                        src={`/images/${project.img}`}
+                        alt={`${project.title}`}
+                        className="w-full h-full"
                     />
                 )}
 
