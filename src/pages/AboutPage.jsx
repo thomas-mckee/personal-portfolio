@@ -10,7 +10,7 @@ export const AboutPage = () => {
             
             <div className="relative overflow-hidden z-0 max-w-7xl mx-auto pt-24 sm:pt-32  px-5 sm:px-10">
                 <div className="inline-block mb-4 sm:mb-10 md:mb-20">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-1 font-extrabold text-amber-50">About</h1>
+                    <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl my-1 font-extrabold text-amber-50">About</h1>
                     {/* <div className="h-1 rounded-full bg-lcd-blue shadow-lcd-glow"></div> */}
                 </div>
                 
@@ -67,15 +67,15 @@ export const AboutPage = () => {
                     </div>
 
                     <div className="inline-block mb-6 sm:mb-8">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-1 font-extrabold text-amber-50">Skills</h1>
+                        <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl my-1 font-extrabold text-amber-50">Skills</h1>
                         {/* <div className="h-1 rounded-full bg-lcd-blue shadow-lcd-glow"></div> */}
                     </div>
 
                     <div className="space-y-8 sm:space-y-12 md:space-y-16 pb-12 sm:pb-16 md:pb-20">
                         {skillCategories.map((category, categoryIndex) => (
                         <div key={categoryIndex}>
-                            <div className="flex items-center gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 md:mb-10 mx-4 sm:mx-8 md:mx-16">
-                                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-amber-50/60 whitespace-nowrap">
+                            <div className="flex items-center gap-4 sm:gap-6 md:gap-8 mb-6 sm:mb-8 md:mb-10 sm:mx-8 md:mx-16">
+                                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-amber-50 opacity-70 whitespace-nowrap">
                                     {category.name}
                                 </h3>
                                 <div className="flex-1 h-px bg-gray-600/30"></div>

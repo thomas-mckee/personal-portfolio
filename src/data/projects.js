@@ -2,7 +2,7 @@ export const projects = [
     {
         id: "tailwindkom",
         title: "TailwindKOM",
-        description: "A smart planning tool that analyzes your Strava segments against live weather data to identify which routes are most favourable given current wind direction and speed.",
+        description: "A planning tool that analyzes your Strava segments against weather data to identify the most favourable routes given current wind direction and speed.",
         youtubeId: "_FtWEi3yTPI",
         video: "/videos/tailwindkom_demo.mp4",
         tags: ["Full Stack", "API"],
@@ -13,7 +13,7 @@ export const projects = [
     {
         id: "rubikscubesolver",
         title: "Rubik's Cube Solver",
-        description: "A Rubik's Cube solver implemented in Python using Thistlethwaite's four-phase algorithm. Upcoming work involves integrating cameras and motors for automated cube solving.",
+        description: "A Rubik's Cube solver implemented in Python using Thistlethwaite's four-phase algorithm. Upcoming work involves integrating motors for automated solving.",
         video: "/videos/rubiks_cube_solver_demo.mp4",
         youtubeId: "KjqldU64SO4",
         tags: ["Python", "Embedded"],
@@ -23,7 +23,7 @@ export const projects = [
     {
         id: "2048",
         title: "2048 Clone",
-        description: "A clone of the popular game 2048.",
+        description: "A clone of the popular game 2048 built using Pygame, featuring core gameplay mechanics.",
         youtubeId: "irD-tvogL4s",
         video: "/videos/2048_demo.mp4", 
         tags: ["Python", "Game"],
@@ -48,8 +48,8 @@ export const projects = [
     },
     {
         id: "8bitadder",
-        title: "8-bit Transistor Adder",
-        description: "An 8-bit full adder implemented at the transistor level and soldered on perfboards (coming soon).",
+        title: "5-bit Transistor Adder",
+        description: "A 5-bit full adder implemented at the transistor level and soldered on perfboards as a low-level hardware build (coming soon)",
         img: "/8bitadder.jpg",
         tags: ["Hardware", "Soldering"],
         hasPage: false,

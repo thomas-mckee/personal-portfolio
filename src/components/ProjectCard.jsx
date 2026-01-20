@@ -8,7 +8,7 @@ export const ProjectCard = ({ project }) => {
     };
 
     return (
-        <div className="mb-3 sm:mb-10">
+        <div className="mb-2">
             {/* Video Container */}
             <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 cursor-pointer group border-2 border-gray-700 shadow-[inset_0_2px_8px_rgba(0,0,0,0.6),inset_0_4px_12px_rgba(0,0,0,0.4)]" onClick={handleViewProject}>
                 {project.youtubeId ? (
@@ -45,7 +45,7 @@ export const ProjectCard = ({ project }) => {
             {/* Project Info */}
             <div>
                 <h3 className="text-2xl sm:text-2xl md:text-3xl font-mono font-bold text-amber-50 mb-2">{project.title}</h3>
-                <p className="text-base font-tech sm:text-lg text-amber-50/60 leading-relaxed mb-4">{project.description}</p>
+                <p className="text-base font-tech sm:text-lg xl:text-xl text-amber-50/60 leading-relaxed mb-4">{project.description}</p>
                 
                 {/* Continue Reading + Tags Row */}
                 <div className="flex items-center justify-between gap-4">
@@ -68,7 +68,7 @@ export const ProjectCard = ({ project }) => {
                     onClick={handleViewProject}
                     className="shrink-0 text-amber-50 hover:text-lcd-blue hover:scale-105 font-mono font-semibold transition-all duration-200 relative group cursor-pointer"
                     >
-                        <span className="sm:inline text-md sm:text-lg">Continue Reading →</span>
+                        <span className="sm:inline text-md sm:text-lg lg:text-xl">Continue Reading →</span>
 
                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-lcd-blue shadow-lcd-glow transition-all duration-200 group-hover:w-full"></span>
                     </button>

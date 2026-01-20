@@ -43,14 +43,14 @@ export const ProjectsPage = () => {
             <div className="py-24 md:py-32 relative z-10 font-mono">
                 <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6">
                     <div className="inline-block">
-                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-1 font-mono font-extrabold text-amber-50">
+                        <h1 className="text-5xl md:text-5xl lg:text-6xl my-1 font-mono font-extrabold text-amber-50">
                             Projects
                         </h1>
                         {/* <div className="h-1 rounded-full bg-lcd-blue shadow-lcd-glow"></div> */}
                     </div>
 
                     {/* Header and Filter Controls */}
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-0 mb-4">
+                    <div className="flex flex-row justify-between items-center gap-4 sm:gap-0">
                         {/* Left side - Active filters */}
                         <div className="flex items-center flex-wrap gap-2 sm:gap-3">
                             {selectedTags.length > 0 && (
@@ -83,7 +83,7 @@ export const ProjectsPage = () => {
                         <div className="relative self-start sm:self-auto">
                             <button
                                 onClick={() => setIsFilterOpen(!isFilterOpen)}
-                                className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-gray-900/50 border rounded-lg text-amber-50/90 hover:text-amber-50 hover:bg-gray-700/50 transition-all duration-200 cursor-pointer text-sm sm:text-base"
+                                className="flex items-center gap-2 px-3 sm:px-4 py-2 mb-4 bg-gray-900/50 border rounded-lg text-amber-50/90 hover:text-amber-50 hover:bg-gray-700/50 transition-all duration-200 cursor-pointer text-sm sm:text-base"
                             >
                                 <Funnel className="w-4 h-4" />
                                 <span>Filter</span>
@@ -91,28 +91,65 @@ export const ProjectsPage = () => {
                             </button>
 
                             {isFilterOpen && (
-                                <div className="absolute sm:right-0 sm:left-auto top-full mt-2 w-50 bg-gray-900/95 backdrop-blur-sm border border-gray-600/50 rounded-lg shadow-2xl z-20">
-                                    <div className="p-4">
-                                        <h3 className="text-white mb-3">Filter by Type</h3>
-                                        <div className="max-h-64 overflow-y-auto space-y-2">
-                                            {allFilters.map(tag => (
-                                                <label 
-                                                    key={tag} 
-                                                    className="flex items-center gap-3 p-2 hover:bg-gray-700/50 rounded cursor-pointer transition-colors"
+                                <>
+                                    {/* Backdrop */}
+                                    <div
+                                        onClick={() => setIsFilterOpen(false)}
+                                        className="fixed inset-0 bg-black/40 backdrop-blur-sm z-10 sm:hidden"
+                                    />
+
+                                    {/* Bottom sheet / Dropdown */}
+                                    <div
+                                        className="
+                                            fixed inset-x-0 bottom-0 z-20
+                                            sm:absolute sm:inset-auto sm:top-full sm:right-0
+                                            w-full sm:w-64
+                                            bg-gray-900/95 backdrop-blur
+                                            border border-gray-600/50
+                                            rounded-t-2xl sm:rounded-lg
+                                            shadow-2xl
+                                            transition-transform duration-300
+                                        "
+                                    >
+                                        {/* Drag handle (mobile only) */}
+                                        <div className="sm:hidden flex justify-center pt-3">
+                                            <div className="w-12 h-1.5 bg-gray-500/40 rounded-full" />
+                                        </div>
+
+                                        <div className="p-4">
+                                            <div className="flex items-center justify-between mb-3">
+                                                <h3 className="text-white">Filter by Type</h3>
+                                                <button
+                                                    onClick={() => setIsFilterOpen(false)}
+                                                    className="sm:hidden text-gray-400 hover:text-white"
                                                 >
-                                                    <input 
-                                                        type="checkbox"
-                                                        checked={selectedTags.includes(tag)}
-                                                        onChange={() => toggleTag(tag)}
-                                                        className="rounded border-gray-600 bg-gray-700 text-lcd-blue focus:ring-lcd-blue focus:ring-offset-gray-800"
-                                                    />
-                                                    <span className="text-amber-50/70 text-sm">{tag}</span>
-                                                </label>
-                                            ))}
+                                                    <X className="w-5 h-5" />
+                                                </button>
+                                            </div>
+
+                                            <div className="max-h-64 overflow-y-auto space-y-2">
+                                                {allFilters.map(tag => (
+                                                    <label
+                                                        key={tag}
+                                                        className="flex items-center gap-3 p-2 hover:bg-gray-700/50 rounded cursor-pointer transition-colors"
+                                                    >
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={selectedTags.includes(tag)}
+                                                            onChange={() => toggleTag(tag)}
+                                                            className="rounded border-gray-600 bg-gray-700 text-lcd-blue focus:ring-lcd-blue focus:ring-offset-gray-800"
+                                                        />
+                                                        <span className="text-amber-50/70 text-sm">
+                                                            {tag}
+                                                        </span>
+                                                    </label>
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </>
                             )}
+
                         </div>
                     </div>
 

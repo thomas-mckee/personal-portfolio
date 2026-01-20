@@ -64,7 +64,7 @@ export const Header = () => {
                             relative cursor-pointer px-2 py-2 text-md sm:text-xl font-semibold rounded transition-all duration-300
                             ${getActiveItem() === item.id
                             ? 'text-amber-50 bg-amber-100/10 border border-amber-200/10'
-                            : 'text-amber-100/70 hover:text-amber-50 hover:bg-amber-100/10'}
+                            : 'text-amber-100/90 hover:text-amber-50 hover:bg-amber-100/10'}
                         `}
                     >
                         {item.label}

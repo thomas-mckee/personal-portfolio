@@ -48,15 +48,29 @@ export const RubiksCubeSolverPage = () => {
 						<div className="min-w-0 overflow-x-hidden mt-4">
 
 							{/* Title and Tags */}
-							<div className="mb-8">
-								<div className="flex flex-row items-end justify-between gap-4 sm:gap-8 mb-4">
-									<div className="inline-flex flex-col">
-										<h1 className="text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-mono font-extrabold text-amber-50 mb-2">
-											Rubik's Cube Solver
-										</h1>
-										<div className="h-1 bg-lcd-blue shadow-lcd-glow rounded-lg"></div>
+							<div className="mb-5">
+								<div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-4">
+									{/* Title */}
+									<h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-mono font-extrabold text-amber-50">
+										Rubik's Cube Solver
+									</h1>
+
+									{/* Desktop Tags */}
+									<div className="hidden lg:flex gap-2 ">
+										<span className="px-3 py-1.5 bg-blue-500/20 border border-lcd-blue rounded-xl text-blue-300 text-sm sm:text-lg font-mono">
+											Python
+										</span>
+										<span className="px-3 py-1.5 bg-blue-500/20 border border-lcd-blue rounded-xl text-blue-300 text-sm sm:text-lg font-mono">
+											Embedded
+										</span>
 									</div>
-									<div className="flex flex-wrap gap-2 mb-2 flex-shrink-0">
+								</div>
+							</div>
+
+							{/* Mobile Tags and Buttons */}
+							<div className="lg:hidden mb-4">
+								<div className="flex items-start justify-between gap-3">
+									<div className="flex flex-wrap gap-2">
 										<span className="px-3 sm:px-4 py-2 bg-blue-500/20 border border-lcd-blue rounded-xl text-blue-300 text-sm sm:text-base font-mono">
 											Python
 										</span>
@@ -64,8 +78,17 @@ export const RubiksCubeSolverPage = () => {
 											Embedded
 										</span>
 									</div>
+									<a
+										href="https://github.com/thomas-mckee/RubiksCubeSolver"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="shrink-0 px-3 py-2 bg-gray-600 text-amber-50 text-sm font-mono rounded-lg hover:bg-gray-700 transition-all duration-200 hover:scale-105 hover:shadow-lg cursor-pointer"
+									>
+										View on GitHub
+									</a>
 								</div>
 							</div>
+
 
 							{/* Video Container */}
 							<div className="relative aspect-video rounded-2xl overflow-hidden mb-6 bg-gray-800 border-2 border-gray-500/50">
@@ -79,19 +102,7 @@ export const RubiksCubeSolverPage = () => {
 								/>
 							</div>
 
-							{/* Mobile Buttons */}
-							<div className="lg:hidden mb-4">
-								<div className="flex gap-3 justify-end">
-									<a
-										href="https://github.com/thomas-mckee/RubiksCubeSolver"
-										target="_blank"
-										rel="noopener noreferrer"
-										className="px-3 py-2 bg-gray-600 text-amber-50 text-sm font-mono rounded-lg hover:bg-gray-700 transition-all duration-200 hover:scale-105 hover:shadow-lg cursor-pointer"
-									>
-										View on GitHub
-									</a>
-								</div>
-							</div>
+							
 
 							{/* Project Sections */}
 							<div className="bg-gray-700/40 border-2 border-gray-500/50 rounded-2xl py-8 sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-16 text-amber-50/80 leading-relaxed text-base sm:text-lg font-tech overflow-x-hidden">

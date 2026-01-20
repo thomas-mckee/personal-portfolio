@@ -196,9 +196,9 @@ export const HomePage = () => {
             </div>
 
             <div className="relative bg-gray-800 pb-20 px-4 sm:px-6 pt-12">
-                <div className="max-w-7xl mx-auto mt-4 lg:mt-10 xl:mt-20">
+                <div className="max-w-7xl mx-auto mt-4 lg:mt-18 xl:mt-20">
                     <div className="inline-block mb-4">
-                        <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl my-1 font-mono font-extrabold text-amber-50">
+                        <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl sm:mb-4 font-mono font-extrabold text-amber-50">
                             Featured Projects
                         </h1>
                         {/* <div className="h-1 rounded-full bg-lcd-blue shadow-lcd-glow"></div> */}
