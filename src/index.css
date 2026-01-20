@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Share+Tech&family=Electrolize&display=swap');
 
 @theme {
   --font-mono: 'Share Tech Mono', monospace;

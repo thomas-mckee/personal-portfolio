@@ -31,7 +31,7 @@ export const ScrollDownArrow = () => {
     return (
         <button
             onClick={handleClick}
-            className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 transition-all duration-500 ease-out cursor-pointer hover:scale-110 ${shouldShow ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+            className={`absolute bottom-8 lg:bottom-14 xl:bottom-8 left-1/2 transform -translate-x-1/2 z-10 transition-all duration-500 ease-out cursor-pointer hover:scale-110 ${shouldShow ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
         >
             <div className={shouldShow ? 'animate-bounce' : ''}>
                 <svg

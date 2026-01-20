@@ -8,10 +8,10 @@ export const AboutPage = () => {
         <div className='min-h-screen bg-gray-800 relative font-mono text-amber-50'>
             <Header />
             
-            <div className="relative overflow-hidden z-0 max-w-7xl mx-auto pt-24 sm:pt-32 md:pt-40 px-4 sm:px-6">
-                <div className="inline-block mb-8 sm:mb-10 md:mb-12">
+            <div className="relative overflow-hidden z-0 max-w-7xl mx-auto pt-24 sm:pt-32  px-5 sm:px-10">
+                <div className="inline-block mb-4 sm:mb-10 md:mb-20">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-1 font-extrabold text-amber-50">About</h1>
-                    <div className="h-1 rounded-full bg-lcd-blue shadow-lcd-glow"></div>
+                    {/* <div className="h-1 rounded-full bg-lcd-blue shadow-lcd-glow"></div> */}
                 </div>
                 
                 <div className="relative z-10">
@@ -57,7 +57,7 @@ export const AboutPage = () => {
                             </div>
                         </div>
 
-                        <div className="bg-gray-700/40 border border-gray-700/30 rounded-2xl p-4 space-y-4 sm:space-y-6 font-tech text-base sm:text-lg xl:text-xl leading-relaxed text-amber-50/80 lg:-mt-20">
+                        <div className="bg-gray-700/40 border border-gray-700/30 rounded-2xl p-4 space-y-4 sm:space-y-6 font-tech text-sm sm:text-lg xl:text-xl leading-relaxed text-amber-50/80 lg:-mt-20">
                             <p>{bioData.bio.intro}</p>
                             {/* <div className="h-px my-4 bg-gradient-to-r from-transparent via-amber-50/30 to-transparent"></div> */}
                             <p>{bioData.bio.interests}</p>
@@ -68,7 +68,7 @@ export const AboutPage = () => {
 
                     <div className="inline-block mb-6 sm:mb-8">
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-1 font-extrabold text-amber-50">Skills</h1>
-                        <div className="h-1 rounded-full bg-lcd-blue shadow-lcd-glow"></div>
+                        {/* <div className="h-1 rounded-full bg-lcd-blue shadow-lcd-glow"></div> */}
                     </div>
 
                     <div className="space-y-8 sm:space-y-12 md:space-y-16 pb-12 sm:pb-16 md:pb-20">

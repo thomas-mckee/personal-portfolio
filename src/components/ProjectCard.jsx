@@ -44,34 +44,39 @@ export const ProjectCard = ({ project }) => {
 
             {/* Project Info */}
             <div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-mono font-bold text-amber-50 mb-2">{project.title}</h3>
+                <h3 className="text-2xl sm:text-2xl md:text-3xl font-mono font-bold text-amber-50 mb-2">{project.title}</h3>
                 <p className="text-base font-tech sm:text-lg text-amber-50/60 leading-relaxed mb-4">{project.description}</p>
                 
                 {/* Continue Reading + Tags Row */}
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
+                <div className="flex items-center justify-between gap-4">
+                
+                    {/* Tags — left */}
                     <div className="flex flex-wrap gap-1.5 sm:gap-2">
                         {project.tags.map((tag, index) => (
-                            <span 
-                                key={index} 
-                                className="px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-mono text-amber-50 border border-white/30 bg-white/10 backdrop-blur-sm"
-                            >
-                                {tag}
-                            </span>
+                        <span 
+                            key={index} 
+                            className="px-2 sm:px-3 py-1 rounded-lg text-sm sm:text-lg  font-mono text-amber-50 border border-white/30 bg-white/10 backdrop-blur-sm"
+                        >
+                            {tag}
+                        </span>
                         ))}
                     </div>
-                    {project.hasPage && (
-                        <button 
-                            onClick={handleViewProject}
-                            className="text-amber-50 hover:text-lcd-blue hover:scale-105 font-mono font-semibold transition-all duration-200 relative group cursor-pointer"
-                        >
-                            Continue Reading →
-                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-lcd-blue shadow-lcd-glow transition-all duration-200 group-hover:w-full"></span>
-                        </button>
-                    )}
 
-                    
-                    
+                    {/* Continue Reading — right */}
+                    {project.hasPage && (
+                    <button
+                    onClick={handleViewProject}
+                    className="shrink-0 text-amber-50 hover:text-lcd-blue hover:scale-105 font-mono font-semibold transition-all duration-200 relative group cursor-pointer"
+                    >
+                        <span className="sm:inline text-md sm:text-lg">Continue Reading →</span>
+
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-lcd-blue shadow-lcd-glow transition-all duration-200 group-hover:w-full"></span>
+                    </button>
+
+                    )}
                 </div>
+
+
             </div>
         </div>
     );

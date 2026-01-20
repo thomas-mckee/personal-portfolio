@@ -40,17 +40,17 @@ export const ProjectsPage = () => {
         <div className="min-h-screen bg-gray-800 relative overflow-hidden">
             <Header />
 
-            <div className="py-24 sm:py-32 md:py-40 relative z-10 font-mono">
+            <div className="py-24 md:py-32 relative z-10 font-mono">
                 <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6">
                     <div className="inline-block">
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl my-1 font-mono font-extrabold text-amber-50">
                             Projects
                         </h1>
-                        <div className="h-1 rounded-full bg-lcd-blue shadow-lcd-glow"></div>
+                        {/* <div className="h-1 rounded-full bg-lcd-blue shadow-lcd-glow"></div> */}
                     </div>
 
                     {/* Header and Filter Controls */}
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-0 mb-6 mt-2">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-0 mb-4">
                         {/* Left side - Active filters */}
                         <div className="flex items-center flex-wrap gap-2 sm:gap-3">
                             {selectedTags.length > 0 && (
