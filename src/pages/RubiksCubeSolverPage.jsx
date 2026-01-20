@@ -105,7 +105,7 @@ export const RubiksCubeSolverPage = () => {
 							
 
 							{/* Project Sections */}
-							<div className="bg-gray-700/40 border-2 border-gray-500/50 rounded-2xl py-8 sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-16 text-amber-50/80 leading-relaxed text-base sm:text-lg font-tech overflow-x-hidden">
+							<div className="bg-gray-700/40 border-2 border-gray-500/50 rounded-2xl sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-16 text-amber-50/80 leading-relaxed text-sm sm:text-lg font-tech overflow-x-hidden">
 
 								{/* Motivation */}
 								<div data-section="motivation" id="motivation" className="mb-12 pt-6 scroll-mt-16">
