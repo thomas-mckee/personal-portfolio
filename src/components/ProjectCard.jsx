@@ -23,22 +23,15 @@ export const ProjectCard = ({ project }) => {
                     <img
                         src={`/images/${project.img}`}
                         alt={`${project.title}`}
-                        className="w-full h-full blur-sm"
+                        className=""
                     />
                 )}
 
                 {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {project.video ? (
                         <span className="text-amber-50 text-xl font-mono font-semibold">
-                            View Project
-                        </span>
-                        ) : (
-                            <span className="text-amber-50 text-xl font-mono font-semibold">
-                            Coming Soon
-                        </span>
-                        )}
-                    
+                            {project.hoverText}
+                        </span>       
                 </div>
             </div>
 

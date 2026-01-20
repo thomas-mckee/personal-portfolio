@@ -50,7 +50,7 @@ export const TailwindKOMPage = () => {
 										<h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-mono font-extrabold text-amber-50 mb-2">
 											TailwindKOM
 										</h1>
-										<div className="h-1 bg-lcd-blue shadow-lcd-glow rounded-lg"></div>
+										{/* <div className="h-1 bg-lcd-blue shadow-lcd-glow rounded-lg"></div> */}
 									</div>
 									<div className="flex flex-wrap gap-2 mb-2 flex-shrink-0">
 										<span className="px-3 sm:px-4 py-2 bg-blue-500/20 border border-lcd-blue rounded-xl text-blue-300 text-sm sm:text-base font-mono">

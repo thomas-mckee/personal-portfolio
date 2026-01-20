@@ -6,7 +6,7 @@ import { LCDDisplay } from "../components/LCDDisplay";
 import { projects } from '../data/projects';
 import { Footer } from '../components/Footer';
 
-const featuredProjects = [...projects.slice(0, 2),...projects.slice(4,6)];
+const featuredProjects = projects.slice(0, 4)
 
 export const HomePage = () => {
     const [left, setLeft] = useState(0);

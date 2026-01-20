@@ -9,6 +9,7 @@ export const projects = [
         github: "https://github.com/thomas-mckee/TailwindKOM",
         live: "https://tailwindkom.vercel.app/",
         hasPage: true,
+        hoverText: "View Project"
     },
     {
         id: "rubikscubesolver",
@@ -19,6 +20,26 @@ export const projects = [
         tags: ["Python", "Embedded"],
         github: "https://github.com/thomas-mckee/RubiksCubeSolver",
         hasPage: true,
+        hoverText: "View Project"
+    },
+    {
+        id: "8bitadder",
+        title: "5-bit Transistor Adder",
+        description: "A 5-bit full adder implemented at the transistor level and soldered on perfboards.",
+        youtubeId: "zsX02MCI464",
+        tags: ["Hardware", "Soldering"],
+        hasPage: false,
+        hoverText: "Coming Soon"
+    },
+    {
+        id: "cyclingcomputer",
+        title: "GPS Bike Computer",
+        description: "ESP32-based cycling computer with GPS, BLE heart-rate monitoring, and a display for real-time ride data.",
+        img: "/cyclingcomputer.jpg",
+        tags: ["Embedded", "ESP32", "FreeRTOS"],
+        hasPage: false,
+        hoverText: "Coming Soon"
+        
     },
     {
         id: "2048",
@@ -28,6 +49,8 @@ export const projects = [
         video: "/videos/2048_demo.mp4", 
         tags: ["Python", "Game"],
         github: "https://github.com/thomas-mckee/2048",
+        hasPage: false,
+        hoverText: "View GitHub"
     },
     {
         id: "mnistdigitmodel",
@@ -37,21 +60,9 @@ export const projects = [
         video: "/videos/mnist_digit_model_demo.mp4", 
         tags: ["Python", "Neural Network", "Flask"],
         github: "https://github.com/thomas-mckee/MNISTDigitModel",
-    },
-        {
-        id: "cyclingcomputer",
-        title: "GPS Bike Computer",
-        description: "ESP32-based cycling computer with GPS, BLE heart-rate monitoring, and a display for real-time ride data (coming soon).",
-        img: "/cyclingcomputer.jpg",
-        tags: ["Embedded", "ESP32", "FreeRTOS"],
         hasPage: false,
+        hoverText: "View GitHub"
     },
-    {
-        id: "8bitadder",
-        title: "5-bit Transistor Adder",
-        description: "A 5-bit full adder implemented at the transistor level and soldered on perfboards as a low-level hardware build (coming soon)",
-        img: "/8bitadder.jpg",
-        tags: ["Hardware", "Soldering"],
-        hasPage: false,
-    },
+    
+    
 ];
