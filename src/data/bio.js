@@ -11,7 +11,7 @@ export const bioData = {
         linkedin: "https://www.linkedin.com/in/thomas-mckee/",
         github: "https://github.com/thomas-mckee",
         strava: "https://www.strava.com/athletes/32498521",
-        resume: "/ThomasMcKee_Resume.pdf"
+        resume: "/ThomasMcKee_Resume_OnePage.pdf"
     },
 
 };
