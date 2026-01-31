@@ -4,7 +4,7 @@ export const bioData = {
         
         interests: "Outside of school, I'm an avid cyclist and guitarist. I enjoy building projects that connect with my hobbies and push me to grow as an engineer. These projects range from custom hardware builds to full-stack applications.",
         
-        currentStatus: "I'm currently in my fourth year of studies and am actively seeking internship opportunities for the Summer of 2026."
+        currentStatus: "I am a fourth-year student and will be starting a Summer 2026 internship in the coming months."
     },
     
     socialLinks: {
