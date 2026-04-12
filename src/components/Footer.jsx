@@ -73,7 +73,7 @@ export const Footer = () => {
                 <div className="border-t border-gray-700/50 pt-6 sm:pt-8 mt-8 sm:mt-12">
                     <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4">
                         <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
-                            © 2025 Thomas McKee. All rights reserved.
+                            © 2026 Thomas McKee. All rights reserved.
                         </p>
                         <p className="text-gray-500 text-xs text-center sm:text-right">
                             Built with React & Tailwind CSS
